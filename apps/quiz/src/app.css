@@ -1,0 +1,1156 @@
+/* Page chrome in the Moodle (Boost / NU) look. Components are themed by @pt/ui/themes/moodle.css. */
+
+html,
+body {
+  margin: 0;
+  background: #fff;
+}
+body {
+  min-height: 100vh;
+  /* Room for the fixed navbar. */
+  padding-top: 60px;
+}
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: #212529;
+}
+/* Moodle's page title is h1.h2, made bold by #page-header: Bootstrap's responsive .h2 size. */
+h1 {
+  font-size: calc(1.325rem + 0.9vw);
+  margin: 0 0 1rem;
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+h2 {
+  font-size: 1.40625rem;
+  margin: 1.5rem 0 0.75rem;
+}
+h3 {
+  font-size: 1.171875rem;
+}
+
+/* ---- Navbar --------------------------------------------------------------- */
+
+/* Fixed like Moodle's .navbar.fixed-top (not sticky), so it stays put during overscroll bounce. */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 60px;
+  padding: 0 1rem;
+  background: #24346c;
+  border-bottom: 1px solid #e8e3e3;
+  color: #fff;
+}
+.navbar a.brand {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.navbar a.brand:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+.navbar .navbar-links a {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.navbar .navbar-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+@media (max-width: 575.98px) {
+  body {
+    padding-top: 96px;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.25rem;
+    height: 96px;
+  }
+  .navbar-links {
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-left: 0;
+  }
+}
+
+/* ---- Page with drawers (Moodle Boost #page.drawers) ------------------------ */
+
+#page.drawers {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  padding: 0 3rem;
+}
+/* #page.drawers .main-inner. From 768px, plus the 15px each side that Moodle puts on
+   #page-header and div[role=main] inside it. */
+.main-inner {
+  width: 100%;
+  margin: 1.5rem auto 3rem;
+  padding: 1.5rem 0.5rem;
+}
+@media (min-width: 768px) {
+  .main-inner {
+    padding: 1.5rem calc(0.5rem + 15px);
+  }
+}
+#page.narrow .main-inner {
+  max-width: 860px;
+}
+.main-inner .alert {
+  margin: 0 0 1rem;
+}
+.drawer {
+  background: #f8f9fa;
+}
+.drawerheader {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+/* .btn.btn-icon: 32px square (16px + 1rem), a 16px glyph in the middle. */
+.drawertoggle,
+.drawer-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 0.375rem;
+  background: none;
+  color: #212529;
+  font-size: 16px;
+}
+.drawertoggle:focus-visible,
+.drawer-menu:focus-visible {
+  outline: 0.25rem solid #0d0f10;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+.drawertoggle,
+.drawer-menu {
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+/* Both are Moodle .btn.btn-icon: --bs-secondary-bg on hover; .btn-icon leaves --bs-btn-active-bg
+   unset, so pressed (:active) or with its dropdown open (.show) the background is cleared. */
+.drawertoggle:hover,
+.drawer-menu:hover {
+  background: #e9ecef;
+}
+.drawertoggle:active,
+.drawer-menu:active,
+.drawer-menu[aria-expanded='true'] {
+  background: none;
+}
+.drawer-left .drawertoggle {
+  margin: 0 auto 0 5px;
+}
+/* .drawerheadercontent > .dropdown > button.btn-icon.mx-2, flush with the drawer's right edge. */
+.drawer-left .dropdown {
+  position: relative;
+}
+.drawer-left .drawer-menu {
+  margin: 0 0.5rem;
+}
+/* Bootstrap 5 .dropdown-menu.dropdown-menu-end, resolved from the saved NU Moodle page
+   (Popper puts it --bs-dropdown-spacer below the toggle). */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0.5rem;
+  z-index: 1000;
+  width: max-content;
+  min-width: 10rem;
+  margin-top: 0.125rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 0.375rem;
+}
+.dropdown-item-text {
+  display: block;
+  padding: 0.25rem 1rem;
+  color: #212529;
+}
+.drawer-right .drawertoggle {
+  margin: 0 5px 0 auto;
+}
+.drawercontent {
+  padding: 0.4rem;
+}
+.drawer-right .block {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 0.375rem;
+}
+.drawer-toggles {
+  display: none;
+}
+@media (min-width: 768px) {
+  .drawer {
+    position: fixed;
+    top: 60px;
+    z-index: 1015;
+    height: calc(100vh - 60px);
+    visibility: hidden;
+    transition:
+      left 0.2s ease,
+      right 0.2s ease,
+      visibility 0.2s ease;
+  }
+  .drawer-left {
+    left: -295px;
+    width: 285px;
+  }
+  .drawer-left.show {
+    left: 0;
+    visibility: visible;
+  }
+  .drawer-right {
+    right: -325px;
+    width: 315px;
+  }
+  .drawer-right.show {
+    right: 0;
+    visibility: visible;
+  }
+  .drawer .drawercontent {
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6c757d #f8f9fa;
+  }
+  #page.drawers {
+    transition:
+      margin 0.2s,
+      padding 0.2s;
+  }
+  #page.drawers.show-drawer-left {
+    margin-left: 285px;
+    padding-left: 1rem;
+  }
+  #page.drawers.show-drawer-right {
+    margin-right: 315px;
+    padding-right: 1rem;
+  }
+  .drawer-toggles {
+    display: block;
+  }
+  .drawer-toggler {
+    position: fixed;
+    top: calc(60px + 0.7rem);
+    z-index: 2;
+  }
+  /* An inline-block .btn (1px transparent border, 24px line box) around an inline, unfixed-width icon. */
+  .drawer-toggler .btn {
+    display: inline-block;
+    padding: 16px;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 200px;
+    background: #dee2e6;
+    color: #212529;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: padding 200ms;
+  }
+  .drawer-toggler .btn:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  .drawer-toggler .btn .fa-icon {
+    vertical-align: -0.125em;
+  }
+  .drawer-left-toggle {
+    left: 0;
+  }
+  .drawer-left-toggle .btn {
+    padding-right: 14px;
+    padding-left: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .drawer-left-toggle .btn:hover {
+    padding-left: 20px;
+  }
+  .drawer-right-toggle {
+    right: 0;
+  }
+  .drawer-right-toggle .btn {
+    padding-right: 10px;
+    padding-left: 14px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .drawer-right-toggle .btn:hover {
+    padding-right: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  /* Phones: the blocks, then the course index, follow the page content (without drawer headers). */
+  #page.drawers {
+    padding: 0 1rem;
+  }
+  .drawer {
+    margin: 0 -1rem;
+    border-top: 1px solid #dee2e6;
+  }
+  .drawer-right {
+    order: 1;
+  }
+  .drawer-left {
+    order: 2;
+  }
+  .drawer .drawerheader {
+    display: none;
+  }
+}
+
+/* ---- Course index (left drawer) ---------------------------------------------------- */
+/* As in the saved page: .courseindex-section (a transparent 3px left border) > a bold title row
+   (.courseindex-item.courseindex-section-title: chevron + .courseindex-link) + the collapsible
+   .courseindex-item-content with its leaves (li.courseindex-item.d-flex > span.completioninfo +
+   .courseindex-link.text-truncate). Everything in --bs-secondary-color, black on hover. Here the
+   whole title row is one toggle button, and the leaves are app links or buttons for app-wide actions. */
+.unlist,
+.unlist li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.courseindex .courseindex-item {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+}
+.courseindex .courseindex-item .completioninfo {
+  min-width: 24px;
+}
+.courseindex .courseindex-item .courseindex-link {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: rgba(33, 37, 41, 0.75);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.courseindex .courseindex-item:not(.courseindex-section-title):is(:hover, :focus-within) .courseindex-link {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* The current page's leaf (.pageitem): white on primary blue, dimmer on hover and focus. */
+.courseindex .courseindex-item.pageitem {
+  background-color: #0d6efd;
+}
+.courseindex .courseindex-item.pageitem .courseindex-link {
+  color: #fff;
+}
+.courseindex .courseindex-item.pageitem:is(:hover, :focus-within) {
+  background-color: #025ce2;
+}
+.courseindex .courseindex-item.pageitem:is(:hover, :focus-within) .courseindex-link {
+  color: #e6e6e6;
+}
+.courseindex .courseindex-item .courseindex-link:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.courseindex .courseindex-section {
+  border-left: 3px solid transparent;
+}
+.courseindex .courseindex-section-title {
+  width: 100%;
+  margin: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+.courseindex .courseindex-section-title .courseindex-link {
+  font-weight: 700;
+}
+.courseindex .courseindex-section-title:is(:hover, :focus-visible) :is(.courseindex-link, .courseindex-chevron) {
+  color: #000;
+}
+.courseindex .courseindex-section-title:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+/* .courseindex-chevron.icons-collapse-expand: the 10px .fa-fw chevron (12.5px wide), .me-1 after it. */
+.courseindex .courseindex-chevron {
+  display: flex;
+  align-items: center;
+  padding-right: 4px;
+  color: rgba(33, 37, 41, 0.75);
+}
+.courseindex .courseindex-chevron :is(.expanded-icon, .collapsed-icon) {
+  display: flex;
+  align-items: center;
+  margin-right: 0.25rem;
+}
+.courseindex .courseindex-chevron .collapsed-icon,
+.courseindex .courseindex-chevron.collapsed .expanded-icon {
+  display: none;
+}
+.courseindex .courseindex-chevron.collapsed .collapsed-icon {
+  display: flex;
+}
+.courseindex .icon {
+  font-size: 10px;
+}
+/* The collapsed chevron is inline in its span: its baseline (7/8 down the glyph box) on the text's. */
+.courseindex .courseindex-chevron .dir-rtl-hide .icon {
+  vertical-align: -0.125em;
+}
+
+/* Bootstrap tooltips on the drawer buttons: instant, black, beside or below the button. */
+:is(.drawertoggle, .drawer-toggler .btn) {
+  position: relative;
+}
+:is(.drawertoggle, .drawer-toggler .btn)[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 1080;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background: #000;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  opacity: 0.9;
+  pointer-events: none;
+}
+/* Pointing into the page: right of the left-hand buttons, left of the right-hand ones. */
+:is(.drawer-left .drawertoggle, .drawer-left-toggle .btn)[data-tooltip]:hover::after {
+  top: 50%;
+  left: calc(100% + 0.4rem);
+  transform: translateY(-50%);
+}
+:is(.drawer-right .drawertoggle, .drawer-right-toggle .btn)[data-tooltip]:hover::after {
+  top: 50%;
+  right: calc(100% + 0.4rem);
+  transform: translateY(-50%);
+}
+/* The block title is an inline .h5.card-title (in a body-sized line); the content follows with .mt-3. */
+.block h2.card-title {
+  display: inline;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.block > .content {
+  margin-top: 1rem;
+}
+/* Each .qnbutton (a float) has a 6px bottom margin, the last row too, kept inside .qn_buttons. */
+.block .pt-nav-grid {
+  padding-bottom: 6px;
+}
+.block .section-name {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.8rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+.block .othernav {
+  margin: 0.5em 0;
+}
+.block .othernav a {
+  display: block;
+  margin: 0.5em 0;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.pt-theme-moodle .breadcrumb a {
+  text-decoration: underline;
+}
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 0.5rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+/* .page-context-header.d-flex.align-items-center.mb-2 (4px 0 padding), the icon with .me-2;
+   then Moodle's 1px-tall skip-link target (span#maincontent) before the main region. */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: calc(0.5rem + 1px);
+  padding: 4px 0;
+}
+.page-header h1 {
+  margin: 0;
+}
+/* .activityiconcontainer.assessment: the quiz monologo from the saved page, recoloured to
+   --activityassessment like Moodle's filter does. */
+.activity-icon {
+  width: 52px;
+  height: 52px;
+}
+/* 10px above; the .navitem keeps 25px below. */
+.tertiary-navigation {
+  margin-bottom: 25px;
+  padding-top: 10px;
+}
+.loading {
+  padding: 2rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+
+/* ---- Timer ------------------------------------------------------------------ */
+
+.quiz-timer-wrapper {
+  position: sticky;
+  top: 65px;
+  z-index: 1020;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.quiz-timer {
+  padding: 0.25rem 0.5rem;
+  background: #fff;
+  border: 1px solid #dc3545;
+}
+.quiz-timer .pt-countdown.low {
+  padding: 0 0.25rem;
+  border-radius: 3px;
+  background: color-mix(in srgb, #dc3545 calc(var(--pt-urgency, 0) * 100%), #fef9f9);
+  color: color-mix(in srgb, #fff calc(var(--pt-urgency, 0) * 100%), #212529);
+}
+
+/* ---- Question page ----------------------------------------------------------- */
+
+.submitbtns {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.submitbtns .next {
+  margin-left: auto;
+}
+.im-controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* No answer row to sit beside (fields inside the text): the buttons go below. */
+.pt-problem > .pt-answer-controls {
+  margin-top: 0.75rem;
+}
+.tries {
+  font-size: 0.875rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+.que .info :is(.source, .difficulty) {
+  margin-top: 0.7em;
+  font-size: 0.75em;
+  color: rgba(33, 37, 41, 0.75);
+  word-break: break-word;
+}
+/* .questionflag a.aabtn: a link-styled toggle; the div around it carries the .8em info size. */
+.que .info .pt-flag-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #0d6efd;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.que .info .pt-flag-toggle:is(:hover, :focus) {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+.que .info .pt-flag-toggle:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.reference-link {
+  font-size: 0.875rem;
+}
+.reference-figure img {
+  max-width: 100%;
+}
+
+/* ---- Tables -------------------------------------------------------------------- */
+
+/* .generaltable in the saved NU Moodle 5 page: rules between rows, no stripes. */
+.generaltable {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  border-top: 1px solid #dee2e6;
+}
+.generaltable th,
+.generaltable td {
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  text-align: left;
+  vertical-align: top;
+}
+/* table.quizreviewsummary: th.cell / td.cell, compact rows ruled above and below. */
+.generaltable.quizreviewsummary :is(th, td) {
+  border-bottom: 1px solid #dee2e6;
+}
+.generaltable.quizreviewsummary th {
+  width: 10em;
+  padding: 1px 0.5em 1px 1em;
+  background: #f0f0f0;
+  font-weight: 700;
+  text-align: right;
+}
+.generaltable.quizreviewsummary td {
+  padding: 1px 1em 1px 0.5em;
+  background: #fafafa;
+}
+
+/* ---- Alerts -------------------------------------------------------------------- */
+
+.alert {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+}
+.alert-danger {
+  background: #f8d7da;
+  border-color: #f1aeb5;
+  color: #58151c;
+}
+.alert-warning {
+  background: #fff3cd;
+  border-color: #ffe69c;
+  color: #664d03;
+}
+.alert-info {
+  background: #cff4fc;
+  border-color: #9eeaf9;
+  color: #055160;
+}
+.alert-success {
+  background: #d1e7dd;
+  border-color: #a3cfbb;
+  color: #0a3622;
+}
+.muted {
+  color: rgba(33, 37, 41, 0.75);
+}
+
+/* ---- Start page ------------------------------------------------------------------ */
+
+/* Exams in halves on the first row, practice in thirds on the second; one column on phones. */
+.presets {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.preset {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.preset[data-preset='exam'],
+.preset[data-preset='nightmare'] {
+  grid-column: span 3;
+}
+@media (max-width: 575.98px) {
+  .presets {
+    grid-template-columns: 1fr;
+  }
+  .presets .preset {
+    grid-column: auto;
+  }
+}
+.preset:hover {
+  border-color: #86b7fe;
+}
+.preset[aria-pressed='true'] {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+.preset strong {
+  font-size: 1.05rem;
+}
+.preset span {
+  font-size: 0.85rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+.custom-chip {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: #fff3cd;
+  color: #664d03;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+fieldset {
+  min-width: 0;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+}
+.set-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding: 0.35rem 0;
+}
+.set-row + .set-row,
+.set-row + details,
+details + .set-row {
+  border-top: 1px solid #f1f3f5;
+}
+.set-row label {
+  font-weight: 600;
+}
+.counts {
+  font-size: 0.85rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+.sections {
+  margin: 0.25rem 0 0.5rem 1.6rem;
+}
+.sections > summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #0d6efd;
+  list-style: none;
+}
+.sections > summary::-webkit-details-marker {
+  display: none;
+}
+/* All · None · Leave out solved: at the size of the summary above, the dots as muted as the counts. */
+.section-actions {
+  margin-top: 0.15rem;
+  font-size: 0.875rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+/* Sections and their problems: a tree like the course index drawer, with its
+   chevrons (fa-chevron-right / -down, .fa-fw at 10px, .me-1, padding-right 4px). */
+.sections > summary::before,
+.section-row .chevron::before,
+.collapsible-heading button::before {
+  content: '';
+  display: inline-block;
+  width: 1.25em;
+  height: 1em;
+  margin-right: 0.25rem;
+  font-size: 10px;
+  background: currentColor;
+  -webkit-mask: var(--chevron-right) center / contain no-repeat;
+  mask: var(--chevron-right) center / contain no-repeat;
+}
+.sections[open] > summary::before,
+.section-row .chevron[aria-expanded='true']::before,
+.collapsible-heading button[aria-expanded='true']::before {
+  -webkit-mask-image: var(--chevron-down);
+  mask-image: var(--chevron-down);
+}
+/* Font Awesome Free 6 (https://fontawesome.com), CC BY 4.0, © Fonticons, Inc. */
+:root {
+  --chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/%3E%3C/svg%3E");
+  --chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E");
+}
+.section-tree {
+  margin: 0.35rem 0 0.5rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+.section-row {
+  display: flex;
+  align-items: baseline;
+  padding: 0.15rem 0;
+}
+.section-row > div {
+  flex: 1;
+  min-width: 0;
+}
+.section-row label {
+  margin-right: 0.35rem;
+  font-weight: 700;
+}
+.section-row .chevron {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px 0 0;
+  border: 0;
+  border-radius: 0.375rem;
+  background: none;
+  color: rgba(33, 37, 41, 0.75);
+  cursor: pointer;
+}
+.section-row .chevron:is(:hover, :focus) {
+  color: #000;
+}
+.section-row .chevron:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+/* Problems line up under the section's checkbox (past the chevron, its margin and padding). */
+.section-tree .problem-picker {
+  margin: 0.25rem 0 0.6rem calc(12.5px + 0.25rem + 4px);
+}
+/* A heading that shows or hides the block below it. The course index's chevron
+   (.courseindex-chevron: --bs-secondary-color, black on hover, 4px + .me-1 before the title),
+   as large against the heading as the 10px one is against the drawer's text. */
+.collapsible-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.collapsible-heading button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0.375rem;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.collapsible-heading button::before {
+  margin-right: calc(0.25rem + 4px);
+  font-size: 0.6em;
+  background: rgba(33, 37, 41, 0.75);
+}
+.collapsible-heading button:is(:hover, :focus-visible)::before {
+  background: #000;
+}
+.collapsible-heading button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.options {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.6rem 1.25rem;
+  align-items: baseline;
+}
+.options > .label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+.options .choices {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1.25rem;
+}
+/* An option with its number field (and unit), kept together. */
+.options .limit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+.options .hint {
+  font-size: 0.8rem;
+  color: rgba(33, 37, 41, 0.75);
+}
+@media (max-width: 575.98px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+}
+input[type='number'].form-control {
+  width: 6rem;
+}
+/* Bootstrap 5.3 .form-control / .form-select, as in the saved NU Moodle 5 page. */
+.form-control,
+.form-select {
+  padding: 0.375rem 0.75rem;
+  font: inherit;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  background: #fff;
+  color: #212529;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.start-summary {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Previous attempts: a scrolling box a little shorter than the screen (below the navbar), with the
+   drawers' thin scrollbar. Separate borders, so the sticky header row keeps its rules. */
+.history-scroll {
+  max-height: calc(100vh - 60px - 4rem);
+  max-height: calc(100dvh - 60px - 4rem);
+  margin-bottom: 1rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #6c757d #f8f9fa;
+}
+.history-scroll .generaltable {
+  margin-bottom: 0;
+  border-top: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.history-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+}
+.history-scroll tbody tr:first-child td {
+  border-top: 0;
+}
+.generaltable .nowrap {
+  white-space: nowrap;
+}
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: #0d6efd;
+  cursor: pointer;
+}
+.link-button:hover {
+  text-decoration: underline;
+}
+/* Bootstrap's .btn-link:disabled. */
+.link-button:disabled {
+  color: #6c757d;
+  opacity: 0.65;
+  pointer-events: none;
+}
+dialog {
+  max-width: 32rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+dialog h2 {
+  margin-top: 0;
+}
+
+/* ---- Import dialog ----------------------------------------------------------------- */
+.import-choices {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.import-choices li {
+  padding: 0.35rem 0;
+}
+.import-choices li + li {
+  border-top: 1px solid #f1f3f5;
+}
+.import-choices label,
+dialog .merge {
+  font-weight: 600;
+}
+.import-choices .counts,
+dialog .merge + .counts {
+  display: block;
+  margin: 0.15rem 0 0 1.6rem;
+}
+dialog .merge + .counts {
+  margin-bottom: 1rem;
+}
+
+/* ---- Toasts --------------------------------------------------------------------------- */
+/* Moodle's .toast-wrapper.mx-auto.py-0.fixed-top and Bootstrap 5 .toast, resolved from the
+   saved page: --bs-toast-* variables, the NU .toast-{type} colours, body text #1a1a1a and a
+   Font Awesome solid circle icon (circle-check, -xmark, -info, -exclamation) before the text. */
+.toast-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1051;
+  max-width: 350px;
+  max-height: 0;
+  margin: 0 auto;
+}
+.toast-wrapper > :first-child {
+  margin-top: 1rem;
+}
+.toast {
+  width: 350px;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 0.875rem;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.toast-body {
+  display: flex;
+  padding: 0.75rem;
+  overflow-wrap: break-word;
+  color: #1a1a1a;
+}
+.toast-body::before {
+  content: '';
+  flex: none;
+  width: 1em;
+  height: 1em;
+  margin: 2px 5px 0 0;
+  background: currentColor;
+  -webkit-mask: var(--toast-icon) center / contain no-repeat;
+  mask: var(--toast-icon) center / contain no-repeat;
+}
+.toast.toast-success {
+  background-color: rgb(209 231 221 / 0.95);
+  color: #0f5132;
+  --toast-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM6.7 11.6 3.5 8.4l1.2-1.2 2 2 4.6-4.6 1.2 1.2z'/%3E%3C/svg%3E");
+}
+.toast.toast-danger {
+  background-color: rgb(248 215 218 / 0.95);
+  color: #842029;
+  --toast-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM5.3 4.1 8 6.8l2.7-2.7 1.2 1.2L9.2 8l2.7 2.7-1.2 1.2L8 9.2l-2.7 2.7-1.2-1.2L6.8 8 4.1 5.3z'/%3E%3C/svg%3E");
+}
+.toast.toast-info {
+  background-color: rgb(207 244 252 / 0.95);
+  color: #087990;
+  --toast-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM7 3.5h2v2H7zm.1 3.3h1.8v5.7H7.1z'/%3E%3C/svg%3E");
+}
+.toast.toast-warning {
+  background-color: rgb(255 243 205 / 0.95);
+  color: #997404;
+  --toast-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM7.1 3.5h1.8V9H7.1zM7 10.6h2v2H7z'/%3E%3C/svg%3E");
+}
+/* Bootstrap 5 .btn-close (.ms-auto), its colour inherited in a toast. */
+.toast .btn-close {
+  box-sizing: content-box;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  margin-left: auto;
+  padding: 0.25em;
+  border: 0;
+  border-radius: 0.375rem;
+  background: transparent
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e")
+    center / 1em auto no-repeat;
+  color: inherit;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.toast .btn-close:hover {
+  opacity: 0.75;
+}
+.toast .btn-close:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  opacity: 1;
+}
+
+/* ---- Links to the study pages on the start page ---------------------------- */
+.study-links {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 576px) {
+  .study-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.main-inner .study-links a {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #24346c;
+  border-radius: 0.5rem;
+  background: #eef1f8;
+  color: #212529;
+  text-decoration: none;
+}
+.study-links strong {
+  color: #24346c;
+}
+.main-inner .study-links a span {
+  font-size: 0.875rem;
+}

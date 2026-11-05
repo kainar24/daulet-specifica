@@ -1,0 +1,567 @@
+/*
+ * Moodle (Boost) look for @pt/ui components. Everything is scoped under
+ * `.pt-theme-moodle`, so importing this file changes nothing until an element
+ * opts in. Selectors are one class deeper than the components' own scoped
+ * styles, so they win without !important.
+ *
+ * Reference: a saved NU Moodle 5 quiz attempt (Boost theme, Bootstrap 5).
+ */
+
+.pt-theme-moodle {
+  /* Light palette only: Moodle has no dark mode. */
+  --pt-bg: #ffffff;
+  /* Bootstrap 5.3 --bs-body-color and --bs-secondary-color, as in the reference. */
+  --pt-fg: #212529;
+  --pt-muted: rgba(33, 37, 41, 0.75);
+  --pt-border: #dee2e6;
+  --pt-surface: #f8f9fa;
+  --pt-input-bg: #ffffff;
+  --pt-accent: #0d6efd;
+  --pt-good: #177a4c;
+  --pt-good-bg: #dff4d8;
+  --pt-warn: #997404;
+  --pt-warn-bg: #fcefdc;
+  --pt-bad: #c6303e;
+  --pt-bad-bg: #ffdddd;
+  --pt-formulation-bg: #e7fafe;
+  --pt-outcome-bg: #fff6da;
+  --pt-nav-answered: #dee2e6;
+  --pt-primary: #0d6efd;
+  --pt-primary-hover: #0b5ed7;
+  --pt-navy: #24346c;
+
+  color: var(--pt-fg);
+  background: var(--pt-bg);
+  /* NU's theme overrides Bootstrap's body (system-ui, 1rem) late in its stylesheet with
+     body{font-family:sans-serif;font-size:17px}. The root stays 16px, so everything sized in rem
+     (buttons, inputs, headings, nav buttons) keeps Bootstrap's sizes; text that inherits is 17px. */
+  font-family: sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* ---- Question card (.que) ------------------------------------------------ */
+
+.pt-theme-moodle .que.pt-question-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0 auto 1.8em;
+}
+.pt-theme-moodle .que.pt-question-card .info {
+  flex: 0 0 7em;
+  width: 7em;
+  padding: 0.5em;
+  background: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+  /* The body size (the card's own default is .85em). */
+  font-size: 1em;
+}
+/* Bootstrap's h3 weight (500); Arial has no medium, so it looks regular. */
+.pt-theme-moodle .que .info h3.no {
+  margin: 0;
+  font-size: 0.8em;
+  font-weight: 500;
+  line-height: 1;
+}
+.pt-theme-moodle .que .info h3.no .qno {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.pt-theme-moodle .que .info > div {
+  margin-top: 0.7em;
+  font-size: 0.8em;
+}
+.pt-theme-moodle .que.pt-question-card .formulation {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  background: #e7fafe;
+  border: 1px solid #b6effb;
+  border-radius: 0.375rem;
+  color: #032830;
+}
+/* Always the yellow box: the reference has no per-state .outcome colours. */
+.pt-theme-moodle .que.pt-question-card .outcome {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  background: #fff6da;
+  border: 1px solid #ffecb5;
+  border-radius: 0.375rem;
+  color: #997404;
+}
+/* All text in the box is the outcome colour (.que .outcome{color:#997404}); only the grade badge carries the verdict. */
+.pt-theme-moodle .que.pt-question-card .outcome .pt-feedback-details li,
+.pt-theme-moodle .que.pt-question-card .outcome .muted {
+  color: inherit;
+}
+@media (max-width: 767.98px) {
+  .pt-theme-moodle .que.pt-question-card {
+    flex-direction: column;
+  }
+  .pt-theme-moodle .que.pt-question-card .info {
+    width: auto;
+    flex-basis: auto;
+    align-self: stretch;
+  }
+}
+
+/* The problem is Moodle's .qtext: the body's line height (the component's own default is 1.6) and
+   margin-bottom 1.5em. In it, .que p{margin:0 0 .5em}: the narrative and each part's prompt are
+   paragraphs, and the answer row follows its text after that half em. */
+.pt-theme-moodle .formulation .pt-problem {
+  margin-bottom: 1.5em;
+  line-height: inherit;
+}
+.pt-theme-moodle .que p,
+.pt-theme-moodle .que .pt-problem .pt-narrative {
+  margin: 0 0 0.5em;
+}
+/* Each part is a .formulaspart: 1.2em below it. */
+.pt-theme-moodle .que .pt-problem .pt-part {
+  margin: 0 0 1.2em;
+}
+
+/* ---- Figures: natural size, like images in Moodle question text ---------- */
+
+/* `figure.` outranks the component's own .pt-figure (max-width 32rem), whatever the stylesheet order. */
+.pt-theme-moodle figure.pt-figure {
+  max-width: 100%;
+}
+/* Without overlays there is nothing to keep in place, so the image need not scale. */
+.pt-theme-moodle .pt-figure .pt-figure-frame:not(:has(.pt-figure-overlays)) {
+  container-type: normal;
+  width: fit-content;
+  max-width: 100%;
+}
+.pt-theme-moodle .pt-figure .pt-figure-frame:not(:has(.pt-figure-overlays)) img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* ---- Answer field (qtype_formulas "Numeric and unit") ------------------- */
+
+/* Fields that end the prompt sit on their own row, like .formulaspart; the answer buttons go beside them. */
+/* Field, mark and buttons share the text baseline, like the inline elements of .formulaspart. */
+.pt-theme-moodle .pt-part-answer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.5em 0 0;
+}
+.pt-theme-moodle .pt-answer-controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pt-theme-moodle .pt-part-answer > :first-child {
+  margin-left: 0;
+}
+
+.pt-theme-moodle .pt-answer-field input {
+  width: 200px;
+}
+/* Answer and unit fields are both Bootstrap .form-control inputs in qtype_formulas. */
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field) input {
+  min-width: 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #212529;
+  background: #fff;
+  /* Bootstrap's .form-control: --bs-border-color and --bs-border-radius. */
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field) input:focus {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+/* Bootstrap's .is-invalid: red frame and icon, and no message, as in Moodle. */
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field).invalid input {
+  padding-right: calc(1.5em + 0.75rem);
+  border-color: #dc3545;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  box-shadow: none;
+}
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field).invalid input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+.pt-theme-moodle :is(.pt-answer-field .pt-answer-error, .pt-unit-field .pt-unit-error) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* The preview is a tooltip under the field while it has focus; it never moves the layout. */
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field) {
+  position: relative;
+}
+.pt-theme-moodle :is(.pt-answer-field .pt-answer-preview, .pt-unit-field .pt-unit-preview) {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  z-index: 1070;
+  display: none;
+  min-height: 0;
+  white-space: nowrap;
+}
+.pt-theme-moodle :is(.pt-answer-field:focus-within .pt-answer-preview, .pt-unit-field:focus-within .pt-unit-preview):not(:empty) {
+  display: block;
+}
+.pt-theme-moodle .pt-answer-field .pt-answer-preview:not(:empty) {
+  font-size: 1.1rem;
+  padding: 0.15rem 0.5rem;
+  background: #eef;
+  border: 1px solid #88c;
+  border-radius: 3px;
+  color: #212529;
+}
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field) input:disabled {
+  background: #e9ecef;
+}
+
+/*
+ * qtype_formulas' instant Bootstrap tooltip above the field ("Numeric and unit"),
+ * also used for the difficulty dots' level name and, as .pt-tooltip, for any
+ * element that explains itself on hover.
+ */
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field, .pt-difficulty, .pt-tooltip)[data-tooltip] {
+  position: relative;
+}
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field, .pt-difficulty, .pt-tooltip)[data-tooltip]::before,
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field, .pt-difficulty, .pt-tooltip)[data-tooltip]::after {
+  position: absolute;
+  left: 50%;
+  z-index: 1080;
+  display: none;
+  pointer-events: none;
+}
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field, .pt-difficulty, .pt-tooltip)[data-tooltip]::before {
+  content: attr(data-tooltip);
+  bottom: calc(100% + 0.4rem);
+  transform: translateX(-50%);
+  max-width: 200px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background: #000;
+  opacity: 0.9;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+/* The 0.8rem x 0.4rem arrow under the box. Two translucent shapes meeting at a fractional pixel
+   leave a light seam (border widths also round down to whole pixels), so the arrow is opaque, the
+   box's colour over the page, and reaches 2px up into the box to cover its bottom edge. */
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field, .pt-difficulty, .pt-tooltip)[data-tooltip]::after {
+  content: '';
+  bottom: 100%;
+  transform: translateX(-50%);
+  border: solid transparent;
+  border-width: calc(0.4rem + 2px) calc(0.4rem + 2px) 0;
+  border-top-color: color-mix(in srgb, #000 90%, var(--pt-bg));
+}
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field):has(> input:hover:enabled)::before,
+.pt-theme-moodle :is(.pt-answer-field, .pt-unit-field):has(> input:hover:enabled)::after {
+  display: block;
+}
+.pt-theme-moodle .pt-difficulty[data-tooltip]:hover::before,
+.pt-theme-moodle .pt-difficulty[data-tooltip]:hover::after {
+  display: block;
+}
+/* Longer text wraps at Bootstrap's 200px; keyboard focus inside shows it too. */
+.pt-theme-moodle .pt-tooltip[data-tooltip]::before {
+  width: max-content;
+  white-space: normal;
+}
+.pt-theme-moodle .pt-tooltip[data-tooltip]:is(:hover, :has(:focus-visible))::before,
+.pt-theme-moodle .pt-tooltip[data-tooltip]:is(:hover, :has(:focus-visible))::after {
+  display: block;
+}
+
+/* ---- Quiz navigation buttons (.qnbutton) -------------------------------- */
+
+/* #mod_quiz_navblock .qnbutton's margin: 0 6px 6px 0, here a gap. The element name outranks the
+   component's own .pt-nav-grid grid, whatever the stylesheet order; `div` is the start page's
+   problem picker. */
+.pt-theme-moodle :is(nav, div).pt-nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 30px;
+  min-height: 0;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 3px;
+  background: #fff;
+  color: #212529;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+}
+/* .thispageholder: the frame, 3px on the current question. */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid;
+  border-radius: 3px;
+  pointer-events: none;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.current {
+  outline: none;
+  font-weight: 400;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.current::before {
+  border-width: 3px;
+}
+/* Answer saved: the whole button turns grey. */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.answered {
+  background: #dee2e6;
+}
+/* Graded: tinted button, coloured frame, a mark in the lower half (.trafficlight). The marks are
+   Moodle's own i/grade_correct, i/grade_partiallycorrect and i/grade_incorrect SVGs, colours baked in. */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item:is(.correct, .partial, .incorrect, .notanswered) {
+  background-position: center 23px;
+  background-size: 14px;
+  background-repeat: no-repeat;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.correct {
+  background-color: #dff4d8;
+  background-image: url('./moodle-icons/grade_correct.svg');
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.correct::before {
+  border-color: #177a4c;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.partial {
+  background-color: #fcefdc;
+  background-image: url('./moodle-icons/grade_partiallycorrect.svg');
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.partial::before {
+  border-color: #997404;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.incorrect {
+  background-color: #fdd;
+  background-image: url('./moodle-icons/grade_incorrect.svg');
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.incorrect::before {
+  border-color: #c6303e;
+}
+/* Not answered: the incorrect mark on a plain white button with the usual frame. */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.notanswered {
+  background-image: url('./moodle-icons/grade_incorrect.svg');
+}
+/* Flagged: Moodle's quiz/flag-on triangle, at 15px 0 inside the frame (.thispageholder background). */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.flagged::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 16px;
+  right: auto;
+  z-index: 1;
+  width: 13px;
+  height: 13px;
+  border: 0;
+  background: url('./moodle-icons/flag-on.svg') no-repeat;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.current.flagged::after {
+  top: 3px;
+  left: 18px;
+}
+/* The question's flag icon is an <img> of i/flagged / i/unflagged: black, whatever the link colour. */
+.pt-theme-moodle .pt-flag-toggle .pt-flag-icon {
+  fill: #000;
+}
+/* Moodle's .qnbutton is a link styled as .btn: on hover it underlines and fades to the link colour. */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item {
+  transition: color 0.15s ease-in-out;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item:is(:hover, :focus) {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.35);
+}
+/* Problem picker (start page): a problem left out fades like a disabled .btn;
+   one an option leaves out anyway cannot be toggled. */
+.pt-theme-moodle .pt-nav-grid .pt-nav-item.left-out {
+  opacity: 0.4;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+.pt-theme-moodle .pt-nav-grid .pt-nav-item[aria-disabled='true']:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+/* ---- Timer ("Time left 0:39:59") ------------------------------------------ */
+
+/* `span.` outranks the component's own .pt-countdown / .low, whatever the stylesheet order. */
+.pt-theme-moodle span.pt-countdown {
+  font-weight: 400;
+  color: inherit;
+}
+.pt-theme-moodle span.pt-countdown.low {
+  font-weight: 700;
+}
+
+/* ---- Feedback ------------------------------------------------------------ */
+/* Selectors here carry .que so they beat the components' own scoped rules whatever the stylesheet
+   order (the production build loads component CSS after this file). */
+
+/* The mark after the field: Moodle's inline .icon.fa-fw (1.25em × 1em, line-height 1) right
+   against the input, on its text baseline (the row aligns on baselines), .5rem before what follows.
+   Colours: Bootstrap text-success / text-danger. */
+.pt-theme-moodle .que .pt-part-answer > .pt-outcome-icon {
+  margin: 0 0 0 -0.5rem;
+  line-height: 1;
+}
+.pt-theme-moodle .que .pt-part-answer > :is(.pt-answer-field, .pt-unit-field):has(+ .pt-outcome-icon) {
+  margin-right: 0;
+}
+.pt-theme-moodle .que .pt-outcome-icon.correct {
+  color: #198754;
+}
+.pt-theme-moodle .que .pt-outcome-icon.incorrect {
+  color: #dc3545;
+}
+/* Partially correct is an <img class="icon"> of i/grade_partiallycorrect instead: 20 × 16, the 16px
+   picture at its left, vertical-align: middle, colour baked in. */
+.pt-theme-moodle .que .pt-outcome-icon.partiallycorrect {
+  width: 20px;
+  color: #90682f;
+  text-align: left;
+}
+.pt-theme-moodle .que .pt-outcome-icon.partiallycorrect svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+/* "One possible correct answer is: ..." (.formulaspartoutcome.outcome > .formulaspartcorrectanswer):
+   a yellow strip under the field, inside the question box. */
+.pt-theme-moodle .que .pt-part-outcome {
+  margin: 0.2em -0.2em 0.5em;
+  padding: 0.2em;
+  background: #fff3bf;
+  border: 1px solid #ffecb5;
+  border-radius: 0.375rem;
+  color: #000;
+}
+.pt-theme-moodle .que .pt-part-outcome .pt-part-correct-answer {
+  padding-top: 6px;
+}
+/* The feedback box: .que .feedback, .que .specificfeedback, .que p {margin: 0 0 .5em}. */
+.pt-theme-moodle .que.pt-question-card .outcome :is(.feedback, .specificfeedback, p) {
+  margin: 0 0 0.5em;
+}
+/* Our value/unit hints sit like Moodle's plain .numpartscorrect line below the verdict (no margin). */
+.pt-theme-moodle .que.pt-question-card .outcome .pt-feedback-details {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: inherit;
+}
+
+/* ---- Buttons (Bootstrap 5) ------------------------------------------------ */
+
+.pt-theme-moodle .btn {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.pt-theme-moodle .btn:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
+}
+.pt-theme-moodle .btn:disabled,
+.pt-theme-moodle .btn[aria-disabled='true'] {
+  opacity: 0.65;
+  pointer-events: none;
+}
+.pt-theme-moodle .btn-primary {
+  color: #fff;
+  background: #0d6efd;
+  border-color: #0d6efd;
+}
+.pt-theme-moodle .btn-primary:hover {
+  background: #0b5ed7;
+  border-color: #0a58ca;
+}
+.pt-theme-moodle .btn-secondary {
+  color: #fff;
+  background: #6c757d;
+  border-color: #6c757d;
+}
+.pt-theme-moodle .btn-secondary:hover {
+  background: #5c636a;
+  border-color: #565e64;
+}
+.pt-theme-moodle .btn-outline-secondary {
+  color: #6c757d;
+  background: transparent;
+  border-color: #6c757d;
+}
+.pt-theme-moodle .btn-outline-secondary:hover {
+  color: #fff;
+  background: #6c757d;
+}
+.pt-theme-moodle .btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  /* Moodle overrides Bootstrap's --bs-border-radius-sm here. */
+  border-radius: 0.375rem;
+}
+
+/* ---- Links ---------------------------------------------------------------- */
+
+.pt-theme-moodle a:not(.btn) {
+  color: #0d6efd;
+  text-decoration: none;
+}
+.pt-theme-moodle a:not(.btn):hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}

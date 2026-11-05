@@ -1,0 +1,71 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P89
+number: 89
+section: 1st Law of Thermodynamics
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: 0.28 moles of an ideal gas, at an initial pressure of 3.7×10⁵ N/m² and an initial volume of 1.5
+  L, undergo an isothermal expansion to a volume of 3.2 L. Find the final pressure of the gas. 1 L =
+  0.001 m³. (173438 Pa)
+text: 0.28 moles of an ideal gas, at an initial pressure of 3.7×10^5 N/m^2 and an initial volume of
+  1.5 L, undergo an isothermal expansion to a volume of 3.2 L. Find the final pressure of the gas. 1
+  L = 0.001 m^3. (173438 Pa)
+answer: { value: 173438, unit: Pa, raw: 173438 Pa }
+figures: []
+literals:
+  - name: n
+    value: 0.28
+    unit: mol
+    text: "0.28"
+    suggest: { min: 0.2, max: 0.36, step: 0.01, decimals: 2 }
+  - name: p
+    value: 370000
+    unit: N/m^2
+    text: 3.7×10^5
+    suggest: { min: 259000, max: 481000, step: 1 }
+  - name: V
+    value: 1.5
+    unit: L
+    text: "1.5"
+    suggest: { min: 1, max: 2, step: 0.1, decimals: 1 }
+  - name: V2
+    value: 3.2
+    unit: L
+    text: "3.2"
+    suggest: { min: 2.2, max: 4.2, step: 0.1, decimals: 1 }
+  - name: V3
+    value: 1
+    unit: L
+    text: "1"
+    suggest: { min: 1, max: 1, step: 1 }
+  - name: L
+    value: 0.001
+    unit: m^3
+    text: "0.001"
+    suggest: { min: 0.001, max: 0.001, step: 0.001, decimals: 3 }
+scenario:
+  id: phys161-exam4-p089
+  source: { document: PHYS161_Exam4, labels: [ P89 ] }
+  section: 1st Law of Thermodynamics
+  narrative: >-
+    {n:unit} of an ideal gas, at an initial pressure of {p:unit} and an initial volume of {V:unit},
+    undergo an isothermal expansion to a volume of {V2:unit}.
+  vars:
+    - { name: n, kind: range, min: TODO, max: TODO, step: TODO, unit: mol }
+    - { name: p, kind: range, min: TODO, max: TODO, step: TODO, unit: N/m^2 }
+    - { name: V, kind: range, min: TODO, max: TODO, step: TODO, unit: L }
+    - { name: V2, kind: range, min: TODO, max: TODO, step: TODO, unit: L }
+    - { name: V3, kind: range, min: TODO, max: TODO, step: TODO, unit: L }
+    - { name: L, kind: range, min: TODO, max: TODO, step: TODO, unit: m^3 }
+  parts:
+    - id: answer
+      prompt: >-
+        Find the final pressure of the gas. {V3:unit} = {L:unit}. {_0}{_u}
+      answer: TODO
+      unit: Pa
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { n: 0.28, p: 370000, V: 1.5, V2: 3.2, V3: 1, L: 0.001 }
+    parts:
+      - { id: answer, answer: 173438, unit: Pa, source: P89 }

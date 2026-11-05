@@ -1,0 +1,917 @@
+[
+{
+"label": "P1",
+"text": "Assuming that the human body is 100 percent efficient in converting consumed food energy into work and heat at the rate of 97 W, calculate how many kilocalories of food energy a human needs per 24 hours. 1 kcal = 4.186 kJ.",
+"answer": 2002.1022455805,
+"unit": ""
+},
+{
+"label": "P2",
+"text": "Assuming that the human body is 100 percent efficient in converting consumed food energy into work and heat, a person consumes 1840 kilocalories of food energy per 24 hours. At what average rate, in watts, does the body release this energy? 1 kcal = 4.186 kJ.",
+"answer": 89.1463,
+"unit": "W"
+},
+{
+"label": "P3",
+"text": "A 0.2 kg aluminum bowl holding 0.8 kg of soup at 21 ˚C is placed in a freezer. What is the final temperature, if 360 kJ of energy is transferred from the bowl and soup, assuming the soup’s thermal properties are the same as that of water? Answer in Kelvin (K). Specific heat of ice is 2090 J/(kg K) Specific heat of water is 4186 J/ (kg K) Specific heat of aluminum is 900 J/ (kg K) Latent heat of fusion for water is 334 kJ/kg",
+"answer": 262.90539956803,
+"unit": "K"
+},
+{
+"label": "P4",
+"text": "Assume that a bridge is built from steel as a single, continuous structure, 143 m long. Taking the coefficient of thermal expansion of steel equal to 10.5×10−6 1/K, calculate by how much the length of the bridge changes between the coldest winter day (-26°C) and the hottest summer day (+35°C)?",
+"answer": 0.0915915,
+"unit": "m"
+},
+{
+"label": "P5",
+"text": "A bridge is built from steel as a single, continuous structure 156 m long. Its length is observed to increase by 11.1 cm. Taking the coefficient of thermal expansion of steel equal to 11.7×10⁻⁶ 1/K, calculate the temperature change that produced this.",
+"answer": 60.8153,
+"unit": "K"
+},
+{
+"label": "P6",
+"text": "Figure shows how a bar with a crack at its center buckles upward as a result of a temperature rise of 30.5°C. If the fixed distance L = 18.3 m and the coefficient of linear expansion is 3.4×10−4 1/K, find the distance x to which the center rises.",
+"answer": 1.32114,
+"unit": "m",
+"fig": "figures/unnamed_002_p-J8.png"
+},
+{
+"label": "P7",
+"text": "A railroad rail made of steel is 1028 m long and it is fastened securely at both ends when the temperature is 16°C. As the temperature increases, the rail begins to buckle upwards, taking the shape of an isosceles triangle. How high is this buckle when the temperature is 34°C? Assume that the coefficient of linear expansion for steel is 11.9×10−6 1/K.",
+"answer": 10.638682550015,
+"unit": "m"
+},
+{
+"label": "P8",
+"text": "A railroad rail made of steel is 870 m long and is fastened securely at both ends when the temperature is 17°. By how much would the rail expand if it were free to do so when the temperature rises to 33°? Assume that the coefficient of linear expansion for steel is 11.4×10⁻⁶ 1/K.",
+"answer": 0.158688,
+"unit": "m"
+},
+{
+"label": "P9",
+"text": "An insulated cup containing 0.35 kg of ice at 0°C is filled with 0.133 kg of water at 86°C. Calculate the mass of liquid after the system reaches thermal equilibrium. Specific heat of water is 4186 J/ (kg K). Latent heat of fusion for water is 334 kJ/kg.",
+"answer": 0.2763517005988,
+"unit": "kg"
+},
+{
+"label": "P10",
+"text": "An insulated cup containing 0.375 kg of ice at 0° is filled with 0.145 kg of water at 83°. Calculate the mass of ice still unmelted after the system reaches thermal equilibrium. Specific heat of water is 4186 J/(kg K). Latent heat of fusion for water is 334 kJ/kg.",
+"answer": 0.224166,
+"unit": "kg"
+},
+{
+"label": "P11",
+"text": "A portion of 0.13 kg of water at 83°C is poured into an insulated cup containing 2.81 kg of ice at 0°C. Calculate the mass of liquid when the system reaches thermal equilibrium. Heat of fusion of water is 334 kJ/kg. Specific heat of water is 4186 J/(kg K).",
+"answer": 0.26523035928144,
+"unit": "kg"
+},
+{
+"label": "P12",
+"text": "A physics student wants to cool 0.25 kg of water, initially at 22°C, by adding ice initially at -16°C. How much ice should she add so that the final temperature will be 0°C with all the ice melted if the heat capacity of the container may be neglected? Latent heat of fusion for water is 334 kJ/kg. Specific heat of water is 4186 J/(kg K). Specific heat of ice is 2100 J/(kg K).",
+"answer": 0.062630576713819,
+"unit": "kg"
+},
+{
+"label": "P13",
+"text": "Calculate the absolute temperature of the lead ball after it falls from the height of 126.1 m on the floor without bouncing off, so that all the energy of the fall goes into heating the lead. Initial temperature of the ball is 20.1°C and clead = 128 J/(kg·°C). The gravitational acceleration is g = 9.8 m/s2.",
+"answer": 302.75453125,
+"unit": "K"
+},
+{
+"label": "P14",
+"text": "A lead ball falls from rest and lands on the floor without bouncing, so that all of the energy of the fall goes into heating the ball. From what height must it fall for its temperature to rise by 2 K? The specific heat of lead is 127.5 J/(kg K) and the gravitational acceleration is g = 9.8 m/s².",
+"answer": 26.0204,
+"unit": "m"
+},
+{
+"label": "P15",
+"text": "A block of ice at 0°C whose mass initially is m = 19.9 kg slides along a horizontal surface, starting at a speed v = 4.62 m/s and finally coming to rest after traveling a certain distance. Compute the mass of ice melted as a result of the friction between the block and the surface. (Assume that all the heat generated owing to friction goes into the block of ice.) Latent heat of fusion for water is 334 kJ/kg.",
+"answer": 0.00063585862275449,
+"unit": "kg"
+},
+{
+"label": "P16",
+"text": "A metal container of mass 7.9 kg contains 15.3 kg of water. A 1.68-kg piece of the same metal, initially at a temperature of 184°C, is dropped into the water. The container and the water initially have a temperature of 14.4°C and the final temperature of the entire system is 17.8°C. Calculate the specific heat of the metal in units J/(kg K). Specific heat of water is 4186 J/(kg·°C).",
+"answer": 862.89099526066,
+"unit": "J/(kg K)"
+},
+{
+"label": "P17",
+"text": "You are given a sample of metal and asked to determine its specific heat. You weigh the sample and find that its weight is 26.4 N. You carefully add 1.5×104 J of heat energy to the sample and find that its temperature rises by 17°C. What is the sample's specific heat? The gravitational acceleration is g = 9.8 m/s2. Answer in J/ (kg K).",
+"answer": 327.54010695187,
+"unit": "J/ (kg K)"
+},
+{
+"label": "P18",
+"text": "You are given a sample of metal whose weight is 26.7 N and whose specific heat is 535 J/(kg K). You carefully add 1.45×10⁴ J of heat energy to the sample. By how much does its temperature rise? The gravitational acceleration is g = 9.8 m/s².",
+"answer": 9.94785,
+"unit": "K"
+},
+{
+"label": "P19",
+"text": "How much energy must be removed when 164 g of steam, at a temperature of 147°C, is cooled and frozen into 164 g of ice at 0°C? Provide an absolute value. Specific heat of steam is 2.1 kJ/(kg K). Specific heat of water is 4186 J/ (kg K). Latent heat of vaporization for water is 2256 kJ/kg. Latent heat of fusion for water is 334 kJ/kg.",
+"answer": 509597.2,
+"unit": "J"
+},
+{
+"label": "P20",
+"text": "A machinist bores a hole of diameter 1.5 cm in a steel plate at a temperature of 21°C. What is the cross-sectional area of the hole when the temperature of the plate is increased to 176°C? Linear coefficient of expansion for steel is 1.2 · 10-5 1/°C.",
+"answer": 0.000177371965,
+"unit": "m^2"
+},
+{
+"label": "P21",
+"text": "A machinist bores a hole of diameter 1.4 cm in a steel plate at a temperature of 16°. What is the diameter of the hole when the temperature of the plate is increased to 170°? Linear coefficient of expansion for steel is 1.19×10⁻⁵ 1/°C.",
+"answer": 0.0140257,
+"unit": "m"
+},
+{
+"label": "P22",
+"text": "A cube made of brass, with an edge length of 44 cm, is heated from 44.5°C to 56.5°C. Calculate the increase of the cube's surface area. Assume that the coefficient of linear expansion for brass is 19 × 10−6 1/K.",
+"answer": 0.0005296896,
+"unit": "m^2"
+},
+{
+"label": "P23",
+"text": "A cube made of brass, with an edge length of 36 cm, is heated from 44.5° to 55.5°. Calculate the increase of the cube's volume. Assume that the coefficient of linear expansion for brass is 19×10⁻⁶ 1/K.",
+"answer": 2.92533e-05,
+"unit": "m^3"
+},
+{
+"label": "P24",
+"text": "An aluminum tea kettle with mass 1.5 kg and containing 1.6 kg of water is placed on a stove. If no heat is lost to the surroundings, how much heat must be added to raise the temperature from 21°C to 77°C? Specific heat of aluminum is 910 J/(kg K), Specific heat of water is 4186 J/ (kg K).",
+"answer": 451505.6,
+"unit": "J"
+},
+{
+"label": "P25",
+"text": "An aluminum tea kettle with mass 1.7 kg containing 1.55 kg of water is placed on a stove at 17°. If no heat is lost to the surroundings and 230 kJ of heat is added, what is the final temperature? Specific heat of aluminum is 910 J/(kg K). Specific heat of water is 4186 J/(kg K).",
+"answer": 45.6237,
+"unit": ""
+},
+{
+"label": "P26",
+"text": "A student makes a cup of coffee by first placing a 180-W electric immersion heater in 1.7 kg of water. How much time is required to raise the temperature from 20°C to 80°C? Assume that all of the heater's power goes into heating the water. Specific heat of water is 4186 J/ (kg K).",
+"answer": 2372.0666666667,
+"unit": "s"
+},
+{
+"label": "P27",
+"text": "A student makes a cup of coffee by placing an electric immersion heater in 1.4 kg of water. The temperature must be raised from 16° to 77° in 1790 s. Assuming that all of the heater's power goes into heating the water, what power must the heater have? Specific heat of water is 4186 J/(kg K).",
+"answer": 199.712,
+"unit": "W"
+},
+{
+"label": "P28",
+"text": "An insulated beaker with negligible mass contains 0.225 kg of water at a temperature of 91°C. How many kilograms of ice at a temperature of -14°C must be dropped into the water to make the final temperature of the system 33°C? Specific heat of water is 4186 J/ (kg K). Specific heat of ice is 2100 J/ (kg K). Latent heat of fusion for water is 334 kJ/kg.",
+"answer": 0.10891956342291,
+"unit": "kg"
+},
+{
+"label": "P29",
+"text": "A metal rod A that is 38 cm long expands by 0.065 cm when its temperature is raised from 0°C to 100°C. A rod B of a different metal and of the same length expands by 0.025 cm for the same rise in temperature. A third rod, also 38 cm long, is made up of pieces of each of the above metals placed end to end and expands 0.05 cm between 0°C and 100°C. Find LA the length of the portion of metal A in the third rod.",
+"answer": 0.2375,
+"unit": "m",
+"fig": "figures/unnamed_008_p-J8.png"
+},
+{
+"label": "P30",
+"text": "A 100 kg weight is hanging from the ceiling by a thin copper wire. In its fundamental mode, this wire vibrates at the frequency 429 Hz. You then increase the temperature of the wire by 29° C. Find the magnitude of the change of fundamental frequency. Coefficient of linear expansion of copper is 1.7×10−5 1/°C.",
+"answer": 0.1057485,
+"unit": "Hz"
+},
+{
+"label": "P31",
+"text": "Rods of copper, brass, and steel are welded together to form a Y-shaped figure. The cross-sectional area of each rod is 1.8 cm2. The free end of the copper rod is maintained at 100°C, and the free ends of the brass and steel rods at 0°C. Assume there is no heat loss from the surfaces of the rods. The lengths of the rods are: copper, 11 cm; brass, 21 cm; steel, 23 cm. What is the temperature of the junction point? Answer in Kelvins (K). Thermal conductivity of the copper is 390 W/(m °C). Thermal conductivity of the steel is 50 W/(m °C). Thermal conductivity of the brass is 130 W/(m °C).",
+"answer": 353.9114729,
+"unit": "K",
+"fig": "figures/unnamed_007_p-J8.png"
+},
+{
+"label": "P32",
+"text": "A polystyrene foam icebox has a total area of 0.94 m2 and walls with an average thickness of 2 cm. The box contains ice, water, and canned beverages at 0°C. The inside of the box is kept cold by melting ice. How much ice melts in one day if the icebox is kept in the trunk of a car at 27°C? Thermal conductivity of polystyrene foam is k = 0.010 W/ (m°C). Latent heat of fusion of water is 334 kJ/kg.",
+"answer": 3.2826826347305,
+"unit": "kg"
+},
+{
+"label": "P33",
+"text": "A polystyrene foam icebox has a total area of 1.01 m² and walls with an average thickness of 2.2 cm. The box contains ice and water at 0°, and the outside temperature is 33°. What is the rate of heat flow into the box? The thermal conductivity of polystyrene foam is k = 0.0115 W/(m °C).",
+"answer": 17.4225,
+"unit": "W"
+},
+{
+"label": "P34",
+"text": "A person produces heat at the rate of about 117 W when at rest. At what rate must water evaporate from the body to get rid of all this energy? Ignore heat transfer by other methods. Latent heat of vaporization for water is 2.430 kJ/g. Answer in g/s.",
+"answer": 0.048148,
+"unit": "g/s"
+},
+{
+"label": "P35",
+"text": "A person produces heat at the rate of about 117 W when at rest, and gets rid of it entirely by evaporating water. How long does it take to evaporate 36 g of water this way? Latent heat of vaporization for water is 2.42 kJ/g.",
+"answer": 744.615,
+"unit": "s"
+},
+{
+"label": "P36",
+"text": "A major source of heat loss from a house in cold weather is through the windows. Calculate the rate of heat flow through a glass window 2 m × 1.3 m in A area and d = 3.4 mm thick, if the temperatures at the inner and outer surfaces are T1 = 16°C and T2 = 13°C, respectively. Thermal conductivity of the glass k = 0.84 W / (m ⋅°C).",
+"answer": 1927.0,
+"unit": "J/s",
+"fig": "figures/unnamed_006_p-J8.png"
+},
+{
+"label": "P37",
+"text": "A major source of heat loss from a house in cold weather is through the windows. A glass window is 1.95 m × 1 m in area and d = 4.1 mm thick. The inner and outer surface temperatures are 19.5° and 11.5° respectively. How much energy flows through this window in 6.5 hours? Thermal conductivity of the glass k = 0.8 W/(m °C).",
+"answer": 71227300.0,
+"unit": "J",
+"fig": "figures/unnamed_006_p-J8.png"
+},
+{
+"label": "P38",
+"text": "A power input of 155 W is required to keep the interior surface of the box of an apparatus 55°C above the temperature of the outer surface. The total area of the box is 2.15 m2, and the wall thickness is 3.1 cm. Find the thermal conductivity of the material of the box.",
+"answer": 0.040634249471459,
+"unit": "W/(m K)"
+},
+{
+"label": "P39",
+"text": "An insulated cylindrical cup contains 0.393 kg of water at 88°C. Some ice at 0°C is placed into the cup. When the system reaches thermal equilibrium, the final temperature will be 0°C with all the ice melted. Calculate by how much the water level will be higher compared to that before adding the ice. The internal radius of the cup is 5.5 cm. Specific heat of water is 4186J/ (kg K). Latent heat of fusion for water is 334 kJ/kg. Density of water is 1 g/cm3.",
+"answer": 0.045609228711262,
+"unit": "m"
+},
+{
+"label": "P40",
+"text": "An air bubble at the bottom of a lake 27 m deep has a volume of 1.4 cm3. If the temperature at the bottom is 5.5°C and the top 17.5°C, what is the radius of the bubble just before it reaches the surface? Normal atmosphere pressure P0 = 101325 Pa. Density of water ρwater = 997 kg/m3. Gravitational acceleration g = 9.8 m/s2.",
+"answer": 0.010790234882701,
+"unit": "m"
+},
+{
+"label": "P41",
+"text": "An air bubble at the bottom of a lake 29 m deep has a volume of 1.7 cm³. The temperature at the bottom is 6° and at the top 16°. What is the volume of the bubble just before it reaches the surface? Atmospheric pressure is 101325 Pa, the density of water is 997 kg/m³ and g = 9.8 m/s².",
+"answer": 6.68524,
+"unit": "cm^3"
+},
+{
+"label": "P42",
+"text": "Consider a gas mixture of Helium and Oxygen molecules assuming O2 is diatomic. The root-mean-square velocity for the O2 molecules is 435 m/s. Find vrms for the Helium atoms. Molar mass of helium is 4 g/mol, molar mass of oxygen is 32 g/mol.",
+"answer": 1230.365799,
+"unit": "m/s"
+},
+{
+"label": "P43",
+"text": "Consider a gas mixture of helium atoms and oxygen molecules in thermal equilibrium, with O₂ treated as diatomic. Molar mass of helium is 4 g/mol and molar mass of oxygen is 31.95 g/mol. By what factor is the root-mean-square speed of the helium atoms larger than that of the oxygen molecules?",
+"answer": 2.82622,
+"unit": ""
+},
+{
+"label": "P44",
+"text": "Consider a gas mixture of Helium and Oxygen molecules assuming O2 is diatomic. The root-mean-square velocity for the O2 molecules is 485 m/s. Molar mass of helium is 4 g/mol, molar mass of oxygen is 32 g/mol. The universal gas constant is R = 8.31 J/(mol K). Find the temperature of the gas in Kelvin.",
+"answer": 301.93341355796,
+"unit": "K"
+},
+{
+"label": "P45",
+"text": "A spherical 19.3-liters balloon contains 16-mol of oxygen gas at a pressure of 202000 Pa. Find the average translational kinetic energy of an oxygen molecule in the balloon. The universal gas constant is R = 8.31 J/(mol K). Boltzmann constant kB = 1.38×10−23 J/K. Avogadro's number NA = 6.022×1023 1/mol.",
+"answer": 6.0693083693125e-22,
+"unit": "J"
+},
+{
+"label": "P46",
+"text": "A spherical 24.2-liter balloon contains 13.5 mol of oxygen gas at a pressure of 207000 Pa. Find the temperature of the gas in the balloon. The universal gas constant is R = 8.31 J/(mol K). 1 L = 0.001 m³.",
+"answer": 44.653,
+"unit": "K"
+},
+{
+"label": "P47",
+"text": "Find the root mean square speed of argon atom in an 8.1 liter container filled with 1.6 mol of argon gas at pressure of 4.7 atm. Molar mass of argon is 39.948 g/mol. The standard atmosphere pressure is 101325 Pa.",
+"answer": 425.50322889891,
+"unit": "m/s"
+},
+{
+"label": "P48",
+"text": "An 8.5-liter container is filled with 1.9 mol of argon gas at a pressure of 4.8 atm. Find the temperature of the gas. The universal gas constant is R = 8.31 J/(mol K). 1 atm = 101325 Pa. 1 L = 0.001 m³.",
+"answer": 261.832,
+"unit": "K"
+},
+{
+"label": "P49",
+"text": "Calculate the total kinetic energy content of 0.71 moles of a monatomic ideal gas at a temperature of 483 K. Boltzmann constant kB = 1.38×10−23 J/K. Avogadro's number NA = 6.022×1023 1/mol. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 4274.62245,
+"unit": "J"
+},
+{
+"label": "P50",
+"text": "Calculate the average translational kinetic energy of one molecule of a monatomic ideal gas at a temperature of 526 K. Boltzmann constant k_B = 1.38×10⁻²³ J/K.",
+"answer": 1.08882e-20,
+"unit": "J"
+},
+{
+"label": "P51",
+"text": "The escape velocity from Planet X is 2.6 km/s. At what temperature would hydrogen molecules (molar mass is equal to 2.016 g/mol) have a root-mean-square velocity equal to the Planet X's escape velocity? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 546.65703971119,
+"unit": "K"
+},
+{
+"label": "P52",
+"text": "At a temperature of 460 K, what is the root-mean-square speed of hydrogen molecules, whose molar mass is 2 g/mol? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 2394.56,
+"unit": "m/s"
+},
+{
+"label": "P53",
+"text": "Find the temperature of the ideal gas with the average translational kinetic energy of a molecule 7.6×10−21 J. Boltzmann constant kB = 1.38×10-23 J/K.",
+"answer": 367.14975845411,
+"unit": "K"
+},
+{
+"label": "P54",
+"text": "A vertical cylindrical tank contains 1.87 mol of an ideal gas under a pressure of 1 atm at 20°C. The round part of the tank has a radius of 1.8 cm, and the gas is supporting a piston that can move up and down in the cylinder without friction. What is the mass of this piston? Assume a vacuum in the tank above the piston. Pressure 1 atm = 101325 Pa and gravitational acceleration g = 9.8 m/s2. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 10.52,
+"unit": "kg"
+},
+{
+"label": "P55",
+"text": "A vertical cylindrical tank contains 1.73 mol of an ideal gas under a pressure of 1 atm at 20°C. The round part of the tank has a radius of 10.2 cm, and the gas is supporting a piston that can move up and down in the cylinder without friction. How tall is the column of gas that is supporting the piston? Assume a vacuum in the tank above the piston. Pressure 1 atm = 101325 Pa and the universal gas constant is R = 8.31 J/(mol K).",
+"answer": 1.2718852142085,
+"unit": "m"
+},
+{
+"label": "P56",
+"text": "A flask with a volume of 1.29 L, provided with a stopcock, contains ethane gas at 295 K and atmospheric pressure 1.01325×105 Pa. The molar mass of ethane is 30.1 g/mol. The system is warmed to a temperature of 388 K, with the stopcock open to the atmosphere. The stopcock is then closed, and the flask is cooled to its original temperature. What is the final pressure of the ethane in the flask? 1 L = 0.001 m3.",
+"answer": 77038.337628866,
+"unit": "Pa"
+},
+{
+"label": "P57",
+"text": "A flask with a volume of 1.4 L, provided with a stopcock, contains ethane gas at 290 K and atmospheric pressure 1.01325×105 Pa. The molar mass of ethane is 30.1 g/mol. The system is warmed to a temperature of 385 K, with the stopcock open to the atmosphere. The stopcock is then closed, and the flask is cooled to its original temperature. Find the mass of ethane remaining in the flask. 1 L = 0.001 m3. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 0.00133459,
+"unit": "kg"
+},
+{
+"label": "P58",
+"text": "A sample of 0.155 kg of xenon is contained in a rigid metal cylinder, big enough that the xenon can be modeled as an ideal monatomic gas, at a temperature of 22°C. The cylinder is moved outside on a hot summer day. As the xenon comes into equilibrium by reaching the temperature of its surrounding, 284 J of heat is conducted to it through the cylinder walls. What is the equilibrium temperature? Ignore the expansion of the metal cylinder. The universal gas constant is R = 8.31 J/(mol K). Answer in kelvins (K). Molar mass of xenon M = 131.3 g/mol.",
+"answer": 314.4500789,
+"unit": "K"
+},
+{
+"label": "P59",
+"text": "An automobile tire has a volume of 0.151 m3 on a cold day when the temperature of the air in the tire is 5°C and the pressure is 2.2 atm. After the car is driven on the highway, the temperature of the air in the tires has risen to 41°C and the volume has risen to 0.16 m3. What then is the pressure? Normal atmosphere pressure P0 = 101325 Pa.",
+"answer": 237604.27904795,
+"unit": "Pa"
+},
+{
+"label": "P60",
+"text": "Calculate the number of molecules in the air in one breath, with a volume of 490 mL, 16°C and 1.02 atm. Boltzmann's constant kB = 1.38⋅10−23 J/K. 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 1.2698e+22,
+"unit": ""
+},
+{
+"label": "P61",
+"text": "Calculate the number of moles of air in one breath, with a volume of 585 mL, at 15° and 1.05 atm. The universal gas constant is R = 8.31 J/(mol K). 1 atm = 101325 Pa. 1 L = 0.001 m³.",
+"answer": 0.0260057,
+"unit": "mol"
+},
+{
+"label": "P62",
+"text": "Calculate the density of 510 mL air under 1.04 atm pressure at 0°C. In terms of molar fraction, air contains 78% N2, 21% O2, and 1% Ar molecules. Molar masses: MN2 = 28 g/mol, MO2 = 32 g/mol, and MAr = 40 g/mol. The universal gas constant is R = 8.31 J/(mol K). 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 1.3451937424789,
+"unit": "kg/m^3"
+},
+{
+"label": "P63",
+"text": "In terms of molar fraction, air contains 76% N₂, 18.5% O₂ and the remainder Ar. The molar masses are M(N2) = 28 g/mol, M(O2) = 32 g/mol and M(Ar) = 40 g/mol. What is the average molar mass of air?",
+"answer": 29.4,
+"unit": "g/mol"
+},
+{
+"label": "P64",
+"text": "Find the mass of a molecule of the gas with molar mass 32 g/mol. Avogadro's number NA = 6.022×1023 1/mol.",
+"answer": 5.3138492195284e-26,
+"unit": "kg"
+},
+{
+"label": "P65",
+"text": "How many molecules are contained in 35.5 g of a gas whose molar mass is 22.5 g/mol? Avogadro's number N_A = 6.022×10²³ 1/mol.",
+"answer": 9.50138e+23,
+"unit": ""
+},
+{
+"label": "P66",
+"text": "A large organic molecule has a mass of 1.3×10−21 kg. What is the molar mass of this compound? Avogadro's number NA = 6.022×1023 1/mol.",
+"answer": 782.86,
+"unit": "kg/mol"
+},
+{
+"label": "P67",
+"text": "A vacuum system can achieve a pressure of 1.9×10−7 N/m2 at 25°C. How many molecules are there in a cubic centimeter at given pressure and temperature? Avogadro's number NA = 6.022×1023 1/mol. The universal gas constant is R = 8.31 J/(mol K). Answer without units.",
+"answer": 46180487.0,
+"unit": ""
+},
+{
+"label": "P68",
+"text": "A vacuum system can achieve a pressure of 4.7×10⁻^7 N/m² at 20°. How many moles of gas are there in one cubic metre at this pressure and temperature? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 1.93032e-10,
+"unit": "mol"
+},
+{
+"label": "P69",
+"text": "If the root-mean-square speed of oxygen molecules inside a refrigerator of volume 617 L is 445 m/s, what is the partial pressure of the oxygen? There are 5.57 moles of oxygen in the refrigerator, and the molar mass of oxygen is 32 g/mol. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 19068.598595354,
+"unit": "Pa"
+},
+{
+"label": "P70",
+"text": "A storage tank at pressure of 104712 Pa contains 26.2 kg of diatomic nitrogen. What is the pressure if an additional 32.9 kg of nitrogen is added without changing the temperature? Molar mass of diatomic nitrogen is MN2 = 28 g/mol.",
+"answer": 236201.49618321,
+"unit": "Pa"
+},
+{
+"label": "P71",
+"text": "A storage tank at a pressure of 105500 Pa contains 23.6 kg of diatomic nitrogen. How much additional nitrogen must be added, without changing the temperature or the volume, to raise the pressure to 213000 Pa? Molar mass of diatomic nitrogen is 28 g/mol.",
+"answer": 24.0474,
+"unit": "kg"
+},
+{
+"label": "P72",
+"text": "The root-mean-square speed of molecules in a gas at 20°C is to be increased by 3%. To what temperature must it be raised? Answer in kelvins (K).",
+"answer": 311.0,
+"unit": "K"
+},
+{
+"label": "P73",
+"text": "The root-mean-square speed of the molecules in a gas is to be increased by 4%. By what percentage must the absolute temperature be raised?",
+"answer": 8.16,
+"unit": ""
+},
+{
+"label": "P74",
+"text": "Calculate how much time in average it would take an oxygen molecule at 12°C to move back and forth across a 6-m-long room 40 times, passing in total 240 m distance. Molar mass of oxygen is 32 g/mol. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 0.50933399254989,
+"unit": "s"
+},
+{
+"label": "P75",
+"text": "What is the pressure inside a 39 L container holding 108 kg of argon gas at 26°C? Molar mass of argon is MAr = 40 g/mol. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 172103296.1538,
+"unit": "Pa"
+},
+{
+"label": "P76",
+"text": "What is the temperature inside a 34.5 L container holding 117 kg of argon gas at a pressure of 172×10⁶ Pa? Molar mass of argon is 40 g/mol. The universal gas constant is R = 8.31 J/(mol K). 1 L = 0.001 m³.",
+"answer": 244.13,
+"unit": "K"
+},
+{
+"label": "P77",
+"text": "Let 29.2 J of heat be added to a particular real gas. As a result, its volume changes from 42.6 to 69.3 cm3 while the pressure remains constant at 1.0 atm. Find the molar specific heat at constant volume. The standard atmosphere pressure is 101325 Pa. Universal gas constant is 8.31 J/(mol K).",
+"answer": 81.382473601189,
+"unit": "J/mol K"
+},
+{
+"label": "P78",
+"text": "Let 38 J of heat be added to a particular real gas. As a result, its volume changes from 45.5 to 110.9 cm³ while the pressure remains constant at 1 atm. How much work does the gas do? 1 atm = 101325 Pa.",
+"answer": 6.62666,
+"unit": "J"
+},
+{
+"label": "P79",
+"text": "Let 31.9 J of heat be added to a particular real gas. As a result, its volume changes from 48 to 77.9 cm3 while the pressure remains constant at 1.0 atm. What is the molar specific heat at constant pressure? The standard atmosphere pressure is 101325 Pa. Universal gas constant is 8.31 J/(mol K).",
+"answer": 87.499164498489,
+"unit": "J/mol K"
+},
+{
+"label": "P80",
+"text": "Let 37.3 J of heat be added to a particular real gas. As a result, its volume changes from 57.2 to 112 cm3 while the pressure remains constant at 1.0 atm. By how much did the internal energy of the gas change? The standard atmosphere pressure is 101325 Pa.",
+"answer": 31.74739,
+"unit": "J"
+},
+{
+"label": "P81",
+"text": "An ideal monatomic gas expands reversibly from 1 m3 to 2.7 m3 at a constant pressure of 1.82 atm and initial temperature of 278 K. The standard atmosphere pressure is 1 atm = 101325 Pa. Gas constant is R = 8.31 J/(mol K). Find the number of moles of gas.",
+"answer": 79.82559800535,
+"unit": "mol"
+},
+{
+"label": "P82",
+"text": "An ideal monatomic gas expands reversibly from 1.8 m³ to 2.5 m³ at a constant pressure, starting from a temperature of 285 K. Find the final temperature of the gas.",
+"answer": 395.833,
+"unit": "K"
+},
+{
+"label": "P83",
+"text": "An ideal monatomic gas expands reversibly from 1.9 m3 to 2.7 m3 at a constant pressure. Initial temperature is 276 K. Find the final temperature of the gas.",
+"answer": 392.21052631579,
+"unit": "K"
+},
+{
+"label": "P84",
+"text": "An ideal monatomic gas expands reversibly from 2.1 m3 to 2.8 m3 at a constant pressure of 1.89 atm. The standard atmosphere pressure is 1 atm = 101325 Pa. Calculate the work done by the gas.",
+"answer": 134052.975,
+"unit": "J"
+},
+{
+"label": "P85",
+"text": "An ideal monatomic gas expands reversibly from 2.3 m³ to 3.4 m³ at constant pressure, doing 120 kJ of work. What is the pressure of the gas? 1 atm = 101325 Pa.",
+"answer": 109091.0,
+"unit": "Pa"
+},
+{
+"label": "P86",
+"text": "It takes 400 J of work to compress quasi-statically 0.8 moles of an ideal gas to one-fifth its volume. Calculate the temperature of the gas, assuming it remains constant during the compression. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 37.384773439206,
+"unit": "K"
+},
+{
+"label": "P87",
+"text": "It takes 455 J of work to compress quasi-statically 0.95 moles of an ideal gas at a constant temperature of 33.5 K. By what factor was the volume reduced? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 5.58704,
+"unit": ""
+},
+{
+"label": "P88",
+"text": "0.2 moles of an ideal gas, at an initial pressure of 3×105 N/m2 and an initial volume of 1.4 l, undergo an isothermal expansion to a volume of 3.5 l. Find the work done by the gas. The universal gas constant is R = 8.31 J/(mol K). 1 L = 0.001 m3.",
+"answer": 384.83,
+"unit": "J"
+},
+{
+"label": "P89",
+"text": "0.28 moles of an ideal gas, at an initial pressure of 3.7×10⁵ N/m² and an initial volume of 1.5 L, undergo an isothermal expansion to a volume of 3.2 L. Find the final pressure of the gas. 1 L = 0.001 m³.",
+"answer": 173438.0,
+"unit": "Pa"
+},
+{
+"label": "P90",
+"text": "PV diagram is shown below. Calculate the work done by the gas in the quasi-static processes represented by the ADBA path cycle. p1 = 2 atm, p2 = 6 atm, V1 = 2 L, V2 = 6 L 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 810.6,
+"unit": "J",
+"fig": "figures/unnamed_003_p-J8.png"
+},
+{
+"label": "P91",
+"text": "PV diagram is shown below. Calculate the work done by the gas in the quasi-static process represented by the ABDA cycle path, that is the ADBA cycle traversed in the opposite direction. p1 = 2 atm, p2 = 5 atm, V1 = 1 L, V2 = 5 L. 1 atm = 101325 Pa. 1 L = 0.001 m³.",
+"answer": -607.95,
+"unit": "J",
+"fig": "figures/unnamed_003_p-J8.png"
+},
+{
+"label": "P92",
+"text": "PV diagram is shown below. Calculate the work done by the gas in the quasi-static processes represented by the ADCBA cycle path. p1 = 1 atm, p2 = 5 atm, V1 = 1 L, V2 = 5 L 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 1621.2,
+"unit": "J",
+"fig": "figures/unnamed_003_p-J8.png"
+},
+{
+"label": "P93",
+"text": "Three moles of an ideal gas are taken around the cycle acba. For this gas, Cp = 29.1 J/(mol⋅K). Process ac is at constant pressure, process ba is at constant volume, and process cb is adiabatic. The temperatures of the gas in states a, c and b are Ta = 298 K, Tc = 489 K, and Tb = 598 K. Calculate the magnitude of the total work for the cycle. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 2036.7,
+"unit": "J",
+"fig": "figures/unnamed_p-J8.png"
+},
+{
+"label": "P94",
+"text": "A cylinder with a frictionless, movable piston contains a quantity of helium gas. Initially the gas is at a pressure of 0.94×105 Pa, has a temperature of 299 K, and occupies a volume of 1.46 L. The gas then is heated and the piston is allowed to move to keep the temperature equal to 299 K. This continues until the pressure reaches 2.36× 104 Pa. Assume that the gas may be treated as ideal. Find the volume of the gas at the end of the process. 1 L = 0.001 m3",
+"answer": 0.0058152542372881,
+"unit": "m^3"
+},
+{
+"label": "P95",
+"text": "A cylinder with a frictionless, movable piston contains helium gas at a pressure of 1.02×10⁵ Pa occupying 3.7 L. The gas is heated at constant pressure until it occupies 6.7 L. How much work does the gas do? 1 L = 0.001 m³.",
+"answer": 306.0,
+"unit": "J"
+},
+{
+"label": "P96",
+"text": "A cylinder with a frictionless, movable piston contains a quantity of helium gas. Initially the gas is at a pressure of 0.92×105 Pa, has a temperature of 303 K, and occupies a volume of 1.23 L. The gas then undergoes two processes. In the first, the gas is heated and the piston is allowed to move to keep the temperature equal to 303 K. This continues until the pressure reaches 2.06×104 Pa. In the second process, the gas is compressed at constant pressure until it returns to its original volume 1.23 L. Assume that the gas may be treated as ideal. Find the temperature at the end of the second process. 1 L = 0.001 m3",
+"answer": 67.845652173913,
+"unit": "K"
+},
+{
+"label": "P97",
+"text": "One-half mole of a monatomic ideal gas is taken from state a to state c. If Pa = 4.15×105 Pa, Pb = 1.95×105 Pa, Va = 0.0019 m3, Vb = 0.0028 m3, and Vc = 0.0041 m3, calculate the final temperature of the gas. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 192.41877256318,
+"unit": "K",
+"fig": "figures/unnamed_009_p-J8.png"
+},
+{
+"label": "P98",
+"text": "One-half mole of a monatomic ideal gas is taken from state a to state c along the path shown. If P_a = 3.95×10⁵ Pa, Pb = 1.95×10⁵ Pa, V_a = 0.0021 m³, Vb = 0.0029 m³ and V_c = 0.004 m³, calculate the temperature of the gas at state b. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 136.101,
+"unit": "K",
+"fig": "figures/unnamed_009_p-J8.png"
+},
+{
+"label": "P99",
+"text": "One-half mole of a monatomic ideal gas is taken from state a to state c. If Pa = 4.05×105 Pa, Pb = 2.15×105 Pa, Va = 0.0021 m3, Vb = 0.003 m3, and Vc = 0.0041 m3, calculate the work done on (or by) the gas as it moves from state a to state c.",
+"answer": 515.5,
+"unit": "J",
+"fig": "figures/unnamed_009_p-J8.png"
+},
+{
+"label": "P100",
+"text": "One-half mole of a monatomic ideal gas is taken from state a to state c. If Pa = 3.95×105 Pa, Pb = 1.95×105 Pa, Va = 0.0022 m3, Vb = 0.0029 m3, and Vc = 0.0041 m3, how much heat leaves (or enters) the system during this process?",
+"answer": 336.22,
+"unit": "J",
+"fig": "figures/unnamed_009_p-J8.png"
+},
+{
+"label": "P101",
+"text": "In a cylinder sealed with a piston, you rapidly compress 1.65 L of N2 gas initially at 0.98 atm pressure and 2°C to half its original volume. Assume N2 behaves like an ideal gas. Assume the compression is adiabatic, γ = 1.4. Calculate the final temperature of the gas. 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 362.86467546255,
+"unit": "K"
+},
+{
+"label": "P102",
+"text": "In a cylinder sealed with a piston, you rapidly compress 1.57 L of N₂ gas initially at 1.01 atm and 2° to half its original volume. Assume N₂ behaves like an ideal diatomic gas and that the compression is adiabatic with γ = 1.4. How much work is done on the gas? 1 atm = 101325 Pa. 1 L = 0.001 m³. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 128.339,
+"unit": "J"
+},
+{
+"label": "P103",
+"text": "In a cylinder sealed with a piston, you rapidly compress 1.23 L of N2 gas initially at 1.01 atm pressure and 2°C to half its original volume. Assume N2 behaves like an ideal gas. Assume the compression is adiabatic, γ = 1.4. Calculate the final pressure of the gas. 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 270072.26089931,
+"unit": "Pa"
+},
+{
+"label": "P104",
+"text": "In a cylinder sealed with a piston, you rapidly compress 2.4 L of N2 gas initially at 0.92 atm pressure and 3°C to half its original volume. Assume N2 behaves like an ideal gas. Assume the compression is adiabatic, γ = 1.4. If you now cool the gas back to 3°C without changing the pressure, what is its final volume? 1 atm = 101325 Pa 1 L = 0.001 m3",
+"answer": 0.00090942993990624,
+"unit": "m^3"
+},
+{
+"label": "P105",
+"text": "A monatomic ideal gas expands slowly to twice its original volume, doing 200 J of work in the process. Find the heat added to the gas if the process is isobaric. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 500.0,
+"unit": "J"
+},
+{
+"label": "P106",
+"text": "A monatomic ideal gas expands slowly to twice its original volume, doing 315 J of work in the process. Find the heat added to the gas if the process is isothermal. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 315.0,
+"unit": "J"
+},
+{
+"label": "P107",
+"text": "A monatomic ideal gas expands slowly to twice its original volume, doing 200 J of work in the process. Find the change in internal energy of the gas if the process is isobaric. The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 300.0,
+"unit": "J"
+},
+{
+"label": "P108",
+"text": "A gas undergoes two processes. In the first, the volume remains constant at 0.19 m3 and the pressure increases from 1.7×105 Pa to 5×105 Pa. The second process is a compression to a volume of 0.09 m3 at a constant pressure of 5×105 Pa. Find the magnitude of total work done on the gas during both processes.",
+"answer": 50000.0,
+"unit": "J"
+},
+{
+"label": "P109",
+"text": "A monatomic ideal gas undergoes two processes. In the first, the volume remains constant at 0.22 m³ while the pressure increases from 1.6×10⁵ Pa to 4.7×10⁵ Pa. The second process is a compression at constant pressure. How much heat is added to the gas during the FIRST process alone?",
+"answer": 102300.0,
+"unit": "J"
+},
+{
+"label": "P110",
+"text": "8.3 moles of an ideal monatomic gas expand adiabatically, performing 9200 J of work in the process. What is the magnitude of change in temperature of the gas during this expansion? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 88.923685113499,
+"unit": "K"
+},
+{
+"label": "P111",
+"text": "5.8 moles of an ideal monatomic gas expand adiabatically, performing 10500 J of work in the process. What is the magnitude of the change in internal energy per mole of the gas? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 1810.34,
+"unit": "J/mol"
+},
+{
+"label": "P112",
+"text": "An ideal gas is slowly compressed at a constant pressure of 1.9 atm from 12 L to 2 L (B to D in figure below). Heat is then added to the gas, holding the volume constant, and the pressure and temperature are allowed to rise (line DA) until the temperature reaches its original value (TA = TB). In the process BDA, calculate the absolute value of the amount of total heat involved in these processes. 1 atm = 101325 Pa, 1 L = 0.001 m3.",
+"answer": 1925.175,
+"unit": "J",
+"fig": "figures/unnamed_004_p-J8.png"
+},
+{
+"label": "P113",
+"text": "Determine the change in internal energy of 1.6 L of water at 100°C when it is fully boiled from liquid to gas, which results in 1607 L of steam at 100°C. Assume the process is done at atmospheric pressure P = 1 atm. Latent heat of vaporization of water is Lv = 2256 kJ/kg. Density of water ⍴=1000 kg/m3. 1 atm = 101325 Pa, 1 L = 0.001 m3.",
+"answer": 3446932.845,
+"unit": "J"
+},
+{
+"label": "P114",
+"text": "Determine the work done by 1.1 L of water at 100° when it is fully boiled from liquid to gas at constant atmospheric pressure, producing 1770 L of steam at 100°. 1 atm = 101325 Pa. 1 L = 0.001 m³.",
+"answer": 179234.0,
+"unit": "J"
+},
+{
+"label": "P115",
+"text": "A Carnot engine operates between a hot reservoir at 495 K and a cold reservoir at 305 K. If it absorbs 494 J of heat per cycle at the hot reservoir, how much work per cycle does it deliver?",
+"answer": 189.61616161616,
+"unit": "J"
+},
+{
+"label": "P116",
+"text": "A Carnot engine operates between a hot reservoir at 505 K and a cold reservoir at 330 K. If it absorbs 426 J of heat per cycle at the hot reservoir, how much heat does it reject per cycle to the cold reservoir?",
+"answer": 278.376,
+"unit": "J"
+},
+{
+"label": "P117",
+"text": "A Carnot engine operates between a hot reservoir at 390 K and a cold reservoir at 260 K. If the same engine working in reverse functions as a refrigerator between the same two reservoirs how much work per cycle must be supplied to remove 1000 J of heat from the cold reservoir?",
+"answer": 500.0,
+"unit": "J"
+},
+{
+"label": "P118",
+"text": "A Carnot engine operates between a hot reservoir at 355 K and a cold reservoir at 250 K. If the same engine working in reverse functions as a refrigerator between the same two reservoirs, what is its coefficient of performance?",
+"answer": 2.38095,
+"unit": ""
+},
+{
+"label": "P119",
+"text": "The maximum possible efficiency of a heat engine which exhausts its heat at a temperature of 31°C is 57 percent. What is the minimum value of the temperature at which the engine takes in heat?",
+"answer": 706.977,
+"unit": "K"
+},
+{
+"label": "P120",
+"text": "A heat engine exhausts its heat at a temperature of 42° and takes in heat at 455°. What is the maximum possible efficiency of this engine? Give the answer as a fraction, not a percentage.",
+"answer": 0.567308,
+"unit": ""
+},
+{
+"label": "P121",
+"text": "A block of ice with a mass of 238 g at 0°C is placed in a large lake. The temperature of the lake is just slightly higher than 0°C, and the ice melts. What is the entropy change of the ice? Heat of fusion of water is 334 kJ/kg.",
+"answer": 291.17948717949,
+"unit": "J/K"
+},
+{
+"label": "P122",
+"text": "A block of ice at 0° is placed in a large lake whose temperature is just slightly above 0°, and the ice melts completely. The entropy change of the ice is 302 J/K. What was the mass of the block? Latent heat of fusion for water is 334 kJ/kg.",
+"answer": 246.844,
+"unit": "g"
+},
+{
+"label": "P123",
+"text": "A block of ice with a mass of 237 g at 0°C is placed in a large lake. The temperature of the lake is just slightly higher than 0°C, and the ice melts. What is the entropy change of the lake? Heat of fusion of water is 334 kJ/kg.",
+"answer": -289.95604395604,
+"unit": "J/K"
+},
+{
+"label": "P124",
+"text": "A 8 kg piece of lead at a temperature of 320 ˚C is placed in a lake whose temperature is 14°C. Determine the entropy change of the lake. Specific heat of the lead is clead = 128 J/(kg K).",
+"answer": 1091.79,
+"unit": "J/K"
+},
+{
+"label": "P125",
+"text": "A 6 kg piece of lead at a temperature of 340° is placed in a lake whose temperature is 17°. How much heat flows from the lead into the lake? Specific heat of the lead is 125 J/(kg K).",
+"answer": 242250.0,
+"unit": "J"
+},
+{
+"label": "P126",
+"text": "A 4 kg piece of lead at a temperature of 320 ˚C is placed in a lake whose temperature is 14 ˚C. Determine the entropy change of the lead piece. Specific heat of the lead is clead = 128 J/(kg K).",
+"answer": -371.56,
+"unit": "J/K"
+},
+{
+"label": "P127",
+"text": "A 8 kg piece of lead at a temperature of 320 ˚C is placed in a lake whose temperature is 14 ˚C. Determine the entropy change of the universe due to this process. Specific heat of the lead is clead = 128 J/(kg K).",
+"answer": 348.4,
+"unit": "J/K"
+},
+{
+"label": "P128",
+"text": "An output of an engine with efficiency of 20% is 215 W. It works at 8 cycles/s. How much heat is rejected each cycle?",
+"answer": 107.5,
+"unit": "J"
+},
+{
+"label": "P129",
+"text": "The output of an engine with an efficiency of 17% is 192 W. It works at 13 cycles/s. How much heat does it absorb from the hot reservoir in each cycle?",
+"answer": 86.8778,
+"unit": "J"
+},
+{
+"label": "P130",
+"text": "An output of an engine with efficiency of 15% is 243 W. It works at 13 cycles/s. How much work is done in each cycle?",
+"answer": 18.692307692308,
+"unit": "J"
+},
+{
+"label": "P131",
+"text": "An ideal engine extracts 10500 J of heat from its hot reservoir while operating between 230 K and 575 K. Find the work done by an ideal engine.",
+"answer": 6300.0,
+"unit": "J"
+},
+{
+"label": "P132",
+"text": "An ideal engine extracts 9200 J of heat from its hot reservoir while operating between 235 K and 570 K. How much heat does it reject to the cold reservoir?",
+"answer": 3792.98,
+"unit": "J"
+},
+{
+"label": "P133",
+"text": "An ideal engine extracts 10800 J of heat from its hot reservoir while operating between 225 K and 525 K. The work from the engine goes into an ideal refrigerator which extracts 4400 J of heat from its cold reservoir. Find the coefficient of performance of the ideal refrigerator.",
+"answer": 0.71296296296296,
+"unit": ""
+},
+{
+"label": "P134",
+"text": "A coal power plant consumes 140000 kg of coal per hour and produces 300 MW of power. If the heat of combustion of coal is 30 MJ/kg, what is the efficiency of the power plant?",
+"answer": 0.25714285714286,
+"unit": ""
+},
+{
+"label": "P135",
+"text": "A coal power plant produces 230 MW of electrical power at an efficiency of 0.26. If the heat of combustion of coal is 26 MJ/kg, how many kilograms of coal does it consume per hour?",
+"answer": 122485.0,
+"unit": "kg"
+},
+{
+"label": "P136",
+"text": "Three moles of an ideal gas undergo a reversible isothermal compression at 22°C. During this compression, 1550 J of work is done on the gas. What is the change in entropy of the gas?",
+"answer": -5.2542372881356,
+"unit": "J/K"
+},
+{
+"label": "P137",
+"text": "Three moles of an ideal gas undergo a reversible isothermal compression at 16.5°. During this compression, 1530 J of work is done on the gas, and the heat produced flows into the surroundings at the same temperature. What is the entropy change of the surroundings?",
+"answer": 5.28497,
+"unit": "J/K"
+},
+{
+"label": "P138",
+"text": "A student immerses one end of a copper rod in boiling water at 100°C and the other end in an ice-water mixture at 0°C. The sides of the rod are insulated. After steady-state conditions have been achieved in the rod, 0.16 kg of ice melts in a certain time interval. For this time interval, find the entropy change of the boiling water. Heat of fusion of water is 334 kJ/kg.",
+"answer": -143.27077747989,
+"unit": "J/K"
+},
+{
+"label": "P139",
+"text": "A student immerses one end of a copper rod in boiling water at 100°C and the other end in an ice-water mixture at 0°C. The sides of the rod are insulated. After steady-state conditions have been achieved in the rod, 0.16 kg of ice melts in a certain time interval. For this time interval, find the entropy change of the ice-water mixture. Heat of fusion of water is 334 kJ/kg.",
+"answer": 195.75091575092,
+"unit": "J/K"
+},
+{
+"label": "P140",
+"text": "A student immerses one end of a copper rod in boiling water at 100°C and the other end in an ice-water mixture at 0°C. The sides of the rod are insulated. After steady-state conditions have been achieved in the rod, 0.19 kg of ice melts in a certain time interval. For this time interval, find the total entropy change of the entire system. Heat of fusion of water is 334 kJ/kg.",
+"answer": 62.32016419684,
+"unit": "J/K"
+},
+{
+"label": "P141",
+"text": "A system consisting of 23 mol of a monatomic ideal gas is cooled at constant pressure from a volume 48 L to 11 L. The initial temperature was 293 K. What is the change in entropy of the gas? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": -703.9823,
+"unit": "J/K"
+},
+{
+"label": "P142",
+"text": "A system consisting of 28 mol of a monatomic ideal gas is cooled at constant pressure from a volume of 44 L to 9 L. The initial temperature was 302 K. What is the final temperature of the gas? The universal gas constant is R = 8.31 J/(mol K).",
+"answer": 61.7727,
+"unit": "K"
+},
+{
+"label": "P143",
+"text": "What is the entropy change of 222 g of steam at 100°C when it condenses to water at the same temperature? Heat of fusion of water is 2256 kJ/kg.",
+"answer": -1342.7131367292,
+"unit": "J/K"
+},
+{
+"label": "P144",
+"text": "Steam at 100° condenses to water at the same temperature, and the entropy change of the steam is -1205 J/K. What mass of steam condensed? Latent heat of vaporization of water is 2254 kJ/kg.",
+"answer": 199.408,
+"unit": "g"
+},
+{
+"label": "P145",
+"text": "A Carnot engine has CO2 as its working substance. The gas is to have a maximum temperature of 491°C. With a heat input of 440 J per cycle, you want 290 J of useful work. Find the temperature of the cold reservoir. Answer in kelvins (K).",
+"answer": 260.45,
+"unit": "K"
+},
+{
+"label": "P146",
+"text": "A Carnot engine has CO2 as its working substance. The gas is to have a maximum temperature of 496°C. With a heat input of 420 J per cycle, you want 290 J of useful work. For how many cycles must this engine run to melt completely a 12 kg block of ice originally at 0°C, using only the heat rejected by the engine. Heat of fusion of water is 334 kJ/kg. Answer without units.",
+"answer": 30830.769,
+"unit": ""
+},
+{
+"label": "P147",
+"text": "A Carnot engine whose low-temperature reservoir is at -90°C has an efficiency of 25%.The efficiency is to be increased to 50%. By how many kelvins must the temperature of the high-temperature reservoir be increased if the temperature of the low-temperature reservoir remains constant?",
+"answer": 122.0,
+"unit": "K"
+},
+{
+"label": "P148",
+"text": "A Carnot engine whose low-temperature reservoir is at -90° has an efficiency of 20%. What is the temperature of its high-temperature reservoir? Answer in kelvins (K).",
+"answer": 228.75,
+"unit": "K"
+},
+{
+"label": "P149",
+"text": "A Carnot engine whose low-temperature reservoir is at -70°C has an efficiency of 25%.The efficiency is to be increased to 50%. By how many kelvins must the temperature of the low-temperature reservoir be decreased if the temperature of the high-temperature reservoir remains constant? Find the magnitude of the temperature change.",
+"answer": 67.667,
+"unit": "K"
+},
+{
+"label": "P150",
+"text": "A heat engine takes 0.3 mol of a diatomic ideal gas around the cycle shown in PV-diagram. Process 1 → 2 is at constant volume, process 2 → 3 is adiabatic, and process 3 → 1 is at a constant pressure of 1 atm. The value of γ for this gas is 1.4. Find the net heat flow into the engine in one cycle. T1 = 297 K, T2 = 603 K and T3 = 498 K. The universal gas constant is R = 8.31 J/(mol K). 1 atm = 101325 Pa.",
+"answer": 153.3195,
+"unit": "J",
+"fig": "figures/unnamed_005_p-J8.png"
+}
+]

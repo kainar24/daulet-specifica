@@ -1,0 +1,37 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P73
+number: 73
+section: Kinetic Theory of Gases
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: The root-mean-square speed of the molecules in a gas is to be increased by 4%. By what
+  percentage must the absolute temperature be raised? (8.16)
+text: The root-mean-square speed of the molecules in a gas is to be increased by 4%. By what
+  percentage must the absolute temperature be raised? (8.16)
+answer: { value: 8.16, raw: "8.16" }
+figures: []
+literals:
+  - name: pct
+    value: 4
+    unit: "%"
+    text: "4"
+    suggest: { min: 3, max: 5, step: 1 }
+scenario:
+  id: phys161-exam4-p073
+  source: { document: PHYS161_Exam4, labels: [ P73 ] }
+  section: Kinetic Theory of Gases
+  narrative: >-
+    The root-mean-square speed of the molecules in a gas is to be increased by {pct}%.
+  vars:
+    - { name: pct, kind: range, min: TODO, max: TODO, step: TODO, unit: "%" }
+  parts:
+    - id: answer
+      prompt: >-
+        By what percentage must the absolute temperature be raised? {_0}
+      answer: TODO
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { pct: 4 }
+    parts:
+      - { id: answer, answer: 8.16, source: P73 }

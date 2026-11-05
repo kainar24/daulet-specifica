@@ -1,0 +1,49 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P43
+number: 43
+section: Kinetic Theory of Gases
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: Consider a gas mixture of helium atoms and oxygen molecules in thermal equilibrium, with O₂
+  treated as diatomic. Molar mass of helium is 4 g/mol and molar mass of oxygen is 31.95 g/mol. By
+  what factor is the root-mean-square speed of the helium atoms larger than that of the oxygen
+  molecules? (2.82622)
+text: Consider a gas mixture of helium atoms and oxygen molecules in thermal equilibrium, with O_2
+  treated as diatomic. Molar mass of helium is 4 g/mol and molar mass of oxygen is 31.95 g/mol. By
+  what factor is the root-mean-square speed of the helium atoms larger than that of the oxygen
+  molecules? (2.82622)
+answer: { value: 2.82622, raw: "2.82622" }
+figures: []
+literals:
+  - name: M
+    value: 4
+    unit: g/mol
+    text: "4"
+    suggest: { min: 3, max: 5, step: 1 }
+  - name: M2
+    value: 31.95
+    unit: g/mol
+    text: "31.95"
+    suggest: { min: 22.37, max: 41.54, step: 0.01, decimals: 2 }
+scenario:
+  id: phys161-exam4-p043
+  source: { document: PHYS161_Exam4, labels: [ P43 ] }
+  section: Kinetic Theory of Gases
+  narrative: >-
+    Consider a gas mixture of helium atoms and oxygen molecules in thermal equilibrium, with $O_{2}$
+    treated as diatomic. Molar mass of helium is {M:unit} and molar mass of oxygen is {M2:unit}.
+  vars:
+    - { name: M, kind: range, min: TODO, max: TODO, step: TODO, unit: g/mol }
+    - { name: M2, kind: range, min: TODO, max: TODO, step: TODO, unit: g/mol }
+  parts:
+    - id: answer
+      prompt: >-
+        By what factor is the root-mean-square speed of the helium atoms larger than that of the
+        oxygen molecules? {_0}
+      answer: TODO
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { M: 4, M2: 31.95 }
+    parts:
+      - { id: answer, answer: 2.82622, source: P43 }

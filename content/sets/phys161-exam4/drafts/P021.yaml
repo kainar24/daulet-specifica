@@ -1,0 +1,60 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P21
+number: 21
+section: Temperature and heat
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: A machinist bores a hole of diameter 1.4 cm in a steel plate at a temperature of 16°. What is
+  the diameter of the hole when the temperature of the plate is increased to 170°? Linear
+  coefficient of expansion for steel is 1.19×10⁻⁵ 1/°C. (0.0140257 m)
+text: A machinist bores a hole of diameter 1.4 cm in a steel plate at a temperature of 16°. What is
+  the diameter of the hole when the temperature of the plate is increased to 170°? Linear
+  coefficient of expansion for steel is 1.19×10^-5 1/°C. (0.0140257 m)
+answer: { value: 0.0140257, unit: m, raw: 0.0140257 m }
+figures: []
+literals:
+  - name: D
+    value: 1.4
+    unit: cm
+    text: "1.4"
+    suggest: { min: 1, max: 1.8, step: 0.1, decimals: 1 }
+  - name: theta
+    value: 16
+    unit: °
+    text: "16"
+    suggest: { min: 11, max: 21, step: 1 }
+  - name: theta2
+    value: 170
+    unit: °
+    text: "170"
+    suggest: { min: 119, max: 221, step: 1 }
+  - name: alpha
+    value: 0.0000119
+    unit: 1/°C
+    text: 1.19×10^-5
+    suggest: { min: 0.0000083, max: 0.0000155, step: 1e-7, decimals: 7 }
+scenario:
+  id: phys161-exam4-p021
+  source: { document: PHYS161_Exam4, labels: [ P21 ] }
+  section: Temperature and heat
+  narrative: >-
+    A machinist bores a hole of diameter {D:unit} in a steel plate at a temperature of {theta}°.
+    Linear coefficient of expansion for steel is {alpha:unit}.
+  vars:
+    - { name: D, kind: range, min: TODO, max: TODO, step: TODO, unit: cm }
+    - { name: theta, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: theta2, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: alpha, kind: range, min: TODO, max: TODO, step: TODO, unit: 1/°C }
+  parts:
+    - id: answer
+      prompt: >-
+        What is the diameter of the hole when the temperature of the plate is increased to
+        {theta2}°? {_0}{_u}
+      answer: TODO
+      unit: m
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { D: 1.4, theta: 16, theta2: 170, alpha: 0.0000119 }
+    parts:
+      - { id: answer, answer: 0.0140257, unit: m, source: P21 }

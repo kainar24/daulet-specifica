@@ -1,0 +1,50 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P52
+number: 52
+section: Kinetic Theory of Gases
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: At a temperature of 460 K, what is the root-mean-square speed of hydrogen molecules, whose
+  molar mass is 2 g/mol? The universal gas constant is R = 8.31 J/(mol K). (2394.56 m/s)
+text: At a temperature of 460 K, what is the root-mean-square speed of hydrogen molecules, whose
+  molar mass is 2 g/mol? The universal gas constant is R = 8.31 J/(mol K). (2394.56 m/s)
+answer: { value: 2394.56, unit: m/s, raw: 2394.56 m/s }
+figures: []
+literals:
+  - name: T
+    value: 460
+    unit: K
+    text: "460"
+    suggest: { min: 322, max: 598, step: 1 }
+  - name: M
+    value: 2
+    unit: g/mol
+    text: "2"
+    suggest: { min: 1, max: 3, step: 1 }
+  - name: R
+    value: 8.31
+    unit: J/(mol K)
+    text: "8.31"
+    suggest: { min: 5.82, max: 10.8, step: 0.01, decimals: 2 }
+scenario:
+  id: phys161-exam4-p052
+  source: { document: PHYS161_Exam4, labels: [ P52 ] }
+  section: Kinetic Theory of Gases
+  narrative: The universal gas constant is R = {R:unit}.
+  vars:
+    - { name: T, kind: range, min: TODO, max: TODO, step: TODO, unit: K }
+    - { name: M, kind: range, min: TODO, max: TODO, step: TODO, unit: g/mol }
+    - { name: R, kind: range, min: TODO, max: TODO, step: TODO, unit: J/(mol K) }
+  parts:
+    - id: answer
+      prompt: >-
+        At a temperature of {T:unit}, what is the root-mean-square speed of hydrogen molecules,
+        whose molar mass is {M:unit}? {_0}{_u}
+      answer: TODO
+      unit: m/s
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { T: 460, M: 2, R: 8.31 }
+    parts:
+      - { id: answer, answer: 2394.56, unit: m/s, source: P52 }

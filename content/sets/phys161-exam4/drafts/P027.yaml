@@ -1,0 +1,69 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P27
+number: 27
+section: Temperature and heat
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: A student makes a cup of coffee by placing an electric immersion heater in 1.4 kg of water. The
+  temperature must be raised from 16° to 77° in 1790 s. Assuming that all of the heater's power goes
+  into heating the water, what power must the heater have? Specific heat of water is 4186 J/(kg K).
+  (199.712 W)
+text: A student makes a cup of coffee by placing an electric immersion heater in 1.4 kg of water.
+  The temperature must be raised from 16° to 77° in 1790 s. Assuming that all of the heater's power
+  goes into heating the water, what power must the heater have? Specific heat of water is 4186 J/(kg
+  K). (199.712 W)
+answer: { value: 199.712, unit: W, raw: 199.712 W }
+figures: []
+literals:
+  - name: m
+    value: 1.4
+    unit: kg
+    text: "1.4"
+    suggest: { min: 1, max: 1.8, step: 0.1, decimals: 1 }
+  - name: theta
+    value: 16
+    unit: °
+    text: "16"
+    suggest: { min: 11, max: 21, step: 1 }
+  - name: theta2
+    value: 77
+    unit: °
+    text: "77"
+    suggest: { min: 54, max: 100, step: 1 }
+  - name: t
+    value: 1790
+    unit: s
+    text: "1790"
+    suggest: { min: 1253, max: 2327, step: 1 }
+  - name: c
+    value: 4186
+    unit: J/(kg K)
+    text: "4186"
+    suggest: { min: 2930, max: 5442, step: 1 }
+scenario:
+  id: phys161-exam4-p027
+  source: { document: PHYS161_Exam4, labels: [ P27 ] }
+  section: Temperature and heat
+  narrative: >-
+    A student makes a cup of coffee by placing an electric immersion heater in {m:unit} of water.
+    The temperature must be raised from {theta}° to {theta2}° in {t:unit}. Specific heat of water is
+    {c:unit}.
+  vars:
+    - { name: m, kind: range, min: TODO, max: TODO, step: TODO, unit: kg }
+    - { name: theta, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: theta2, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: t, kind: range, min: TODO, max: TODO, step: TODO, unit: s }
+    - { name: c, kind: range, min: TODO, max: TODO, step: TODO, unit: J/(kg K) }
+  parts:
+    - id: answer
+      prompt: >-
+        Assuming that all of the heater's power goes into heating the water, what power must the
+        heater have? {_0}{_u}
+      answer: TODO
+      unit: W
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { m: 1.4, theta: 16, theta2: 77, t: 1790, c: 4186 }
+    parts:
+      - { id: answer, answer: 199.712, unit: W, source: P27 }

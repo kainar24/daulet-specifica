@@ -1,0 +1,53 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P35
+number: 35
+section: Temperature and heat
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: A person produces heat at the rate of about 117 W when at rest, and gets rid of it entirely by
+  evaporating water. How long does it take to evaporate 36 g of water this way? Latent heat of
+  vaporization for water is 2.42 kJ/g. (744.615 s)
+text: A person produces heat at the rate of about 117 W when at rest, and gets rid of it entirely by
+  evaporating water. How long does it take to evaporate 36 g of water this way? Latent heat of
+  vaporization for water is 2.42 kJ/g. (744.615 s)
+answer: { value: 744.615, unit: s, raw: 744.615 s }
+figures: []
+literals:
+  - name: P
+    value: 117
+    unit: W
+    text: "117"
+    suggest: { min: 82, max: 152, step: 1 }
+  - name: m
+    value: 36
+    unit: g
+    text: "36"
+    suggest: { min: 25, max: 47, step: 1 }
+  - name: Lh
+    value: 2.42
+    unit: kJ/g
+    text: "2.42"
+    suggest: { min: 1.69, max: 3.15, step: 0.01, decimals: 2 }
+scenario:
+  id: phys161-exam4-p035
+  source: { document: PHYS161_Exam4, labels: [ P35 ] }
+  section: Temperature and heat
+  narrative: >-
+    A person produces heat at the rate of about {P:unit} when at rest, and gets rid of it entirely
+    by evaporating water. Latent heat of vaporization for water is {Lh:unit}.
+  vars:
+    - { name: P, kind: range, min: TODO, max: TODO, step: TODO, unit: W }
+    - { name: m, kind: range, min: TODO, max: TODO, step: TODO, unit: g }
+    - { name: Lh, kind: range, min: TODO, max: TODO, step: TODO, unit: kJ/g }
+  parts:
+    - id: answer
+      prompt: >-
+        How long does it take to evaporate {m:unit} of water this way? {_0}{_u}
+      answer: TODO
+      unit: s
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { P: 117, m: 36, Lh: 2.42 }
+    parts:
+      - { id: answer, answer: 744.615, unit: s, source: P35 }

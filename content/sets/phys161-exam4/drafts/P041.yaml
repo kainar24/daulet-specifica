@@ -1,0 +1,82 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P41
+number: 41
+section: Kinetic Theory of Gases
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: An air bubble at the bottom of a lake 29 m deep has a volume of 1.7 cm³. The temperature at the
+  bottom is 6° and at the top 16°. What is the volume of the bubble just before it reaches the
+  surface? Atmospheric pressure is 101325 Pa, the density of water is 997 kg/m³ and g = 9.8 m/s².
+  (6.68524 cm^3)
+text: An air bubble at the bottom of a lake 29 m deep has a volume of 1.7 cm^3. The temperature at
+  the bottom is 6° and at the top 16°. What is the volume of the bubble just before it reaches the
+  surface? Atmospheric pressure is 101325 Pa, the density of water is 997 kg/m^3 and g = 9.8 m/s^2.
+  (6.68524 cm^3)
+answer: { value: 6.68524, unit: cm^3, raw: 6.68524 cm^3 }
+figures: []
+literals:
+  - name: d
+    value: 29
+    unit: m
+    text: "29"
+    suggest: { min: 20, max: 38, step: 1 }
+  - name: V
+    value: 1.7
+    unit: cm^3
+    text: "1.7"
+    suggest: { min: 1.2, max: 2.2, step: 0.1, decimals: 1 }
+  - name: theta
+    value: 6
+    unit: °
+    text: "6"
+    suggest: { min: 4, max: 8, step: 1 }
+  - name: theta2
+    value: 16
+    unit: °
+    text: "16"
+    suggest: { min: 11, max: 21, step: 1 }
+  - name: p
+    value: 101325
+    unit: Pa
+    text: "101325"
+    suggest: { min: 70928, max: 131723, step: 1 }
+  - name: rho
+    value: 997
+    unit: kg/m^3
+    text: "997"
+    suggest: { min: 698, max: 1296, step: 1 }
+  - name: g
+    value: 9.8
+    unit: m/s^2
+    text: "9.8"
+    constant: true
+    suggest: { min: 6.9, max: 12.7, step: 0.1, decimals: 1 }
+scenario:
+  id: phys161-exam4-p041
+  source: { document: PHYS161_Exam4, labels: [ P41 ] }
+  section: Kinetic Theory of Gases
+  narrative: >-
+    An air bubble at the bottom of a lake {d:unit} deep has a volume of {V:unit}. The temperature at
+    the bottom is {theta}° and at the top {theta2}°. Atmospheric pressure is {p:unit}, the density
+    of water is {rho:unit} and g = {g:unit}.
+  vars:
+    - { name: d, kind: range, min: TODO, max: TODO, step: TODO, unit: m }
+    - { name: V, kind: range, min: TODO, max: TODO, step: TODO, unit: cm^3 }
+    - { name: theta, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: theta2, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: p, kind: range, min: TODO, max: TODO, step: TODO, unit: Pa }
+    - { name: rho, kind: range, min: TODO, max: TODO, step: TODO, unit: kg/m^3 }
+  derived:
+    - { name: g, expr: "9.8", unit: m/s^2 }
+  parts:
+    - id: answer
+      prompt: >-
+        What is the volume of the bubble just before it reaches the surface? {_0}{_u}
+      answer: TODO
+      unit: cm^3
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { d: 29, V: 1.7, theta: 6, theta2: 16, p: 101325, rho: 997, g: 9.8 }
+    parts:
+      - { id: answer, answer: 6.68524, unit: cm^3, source: P41 }

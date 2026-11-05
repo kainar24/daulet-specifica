@@ -1,0 +1,44 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P50
+number: 50
+section: Kinetic Theory of Gases
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: Calculate the average translational kinetic energy of one molecule of a monatomic ideal gas at
+  a temperature of 526 K. Boltzmann constant k_B = 1.38×10⁻²³ J/K. (1.08882e-20 J)
+text: Calculate the average translational kinetic energy of one molecule of a monatomic ideal gas at
+  a temperature of 526 K. Boltzmann constant k_B = 1.38×10^-23 J/K. (1.08882e-20 J)
+answer: { value: 1.08882e-20, unit: J, raw: 1.08882e-20 J }
+figures: []
+literals:
+  - name: T
+    value: 526
+    unit: K
+    text: "526"
+    suggest: { min: 368, max: 684, step: 1 }
+  - name: kB
+    value: 1.38e-23
+    unit: J/K
+    text: 1.38×10^-23
+    suggest: { min: 1e-23, max: 1.8e-23, step: 1e-24 }
+scenario:
+  id: phys161-exam4-p050
+  source: { document: PHYS161_Exam4, labels: [ P50 ] }
+  section: Kinetic Theory of Gases
+  narrative: Boltzmann constant $k_{B}$ = {kB:unit}.
+  vars:
+    - { name: T, kind: range, min: TODO, max: TODO, step: TODO, unit: K }
+    - { name: kB, kind: range, min: TODO, max: TODO, step: TODO, unit: J/K }
+  parts:
+    - id: answer
+      prompt: >-
+        Calculate the average translational kinetic energy of one molecule of a monatomic ideal gas
+        at a temperature of {T:unit}. {_0}{_u}
+      answer: TODO
+      unit: J
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { T: 526, kB: 1.38e-23 }
+    parts:
+      - { id: answer, answer: 1.08882e-20, unit: J, source: P50 }

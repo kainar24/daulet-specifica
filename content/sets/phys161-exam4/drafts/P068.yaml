@@ -1,0 +1,57 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P68
+number: 68
+section: Kinetic Theory of Gases
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: A vacuum system can achieve a pressure of 4.7×10⁻^7 N/m² at 20°. How many moles of gas are
+  there in one cubic metre at this pressure and temperature? The universal gas constant is R = 8.31
+  J/(mol K). (1.93032e-10 mol)
+text: A vacuum system can achieve a pressure of 4.7×10^-^7 N/m^2 at 20°. How many moles of gas are
+  there in one cubic metre at this pressure and temperature? The universal gas constant is R = 8.31
+  J/(mol K). (1.93032e-10 mol)
+answer: { value: 1.93032e-10, unit: mol, raw: 1.93032e-10 mol }
+figures: []
+literals:
+  - name: x
+    value: 4.7
+    text: "4.7"
+    suggest: { min: 3.3, max: 6.1, step: 0.1, decimals: 1 }
+  - name: x2
+    value: 10
+    text: "10"
+    suggest: { min: 7, max: 13, step: 1 }
+  - name: theta
+    value: 20
+    unit: °
+    text: "20"
+    suggest: { min: 14, max: 26, step: 1 }
+  - name: R
+    value: 8.31
+    unit: J/(mol K)
+    text: "8.31"
+    suggest: { min: 5.82, max: 10.8, step: 0.01, decimals: 2 }
+scenario:
+  id: phys161-exam4-p068
+  source: { document: PHYS161_Exam4, labels: [ P68 ] }
+  section: Kinetic Theory of Gases
+  narrative: >-
+    A vacuum system can achieve a pressure of {x}×{x2}^-$^{7}$ N/m$^{2}$ at {theta}°. The universal
+    gas constant is R = {R:unit}.
+  vars:
+    - { name: x, kind: range, min: TODO, max: TODO, step: TODO }
+    - { name: x2, kind: range, min: TODO, max: TODO, step: TODO }
+    - { name: theta, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: R, kind: range, min: TODO, max: TODO, step: TODO, unit: J/(mol K) }
+  parts:
+    - id: answer
+      prompt: >-
+        How many moles of gas are there in one cubic metre at this pressure and temperature? {_0}{_u}
+      answer: TODO
+      unit: mol
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { x: 4.7, x2: 10, theta: 20, R: 8.31 }
+    parts:
+      - { id: answer, answer: 1.93032e-10, unit: mol, source: P68 }

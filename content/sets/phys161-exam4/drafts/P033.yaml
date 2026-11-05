@@ -1,0 +1,61 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P33
+number: 33
+section: Temperature and heat
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: A polystyrene foam icebox has a total area of 1.01 m² and walls with an average thickness of
+  2.2 cm. The box contains ice and water at 0°, and the outside temperature is 33°. What is the rate
+  of heat flow into the box? The thermal conductivity of polystyrene foam is k = 0.0115 W/(m °C).
+  (17.4225 W)
+text: A polystyrene foam icebox has a total area of 1.01 m^2 and walls with an average thickness of
+  2.2 cm. The box contains ice and water at 0°, and the outside temperature is 33°. What is the rate
+  of heat flow into the box? The thermal conductivity of polystyrene foam is k = 0.0115 W/(m °C).
+  (17.4225 W)
+answer: { value: 17.4225, unit: W, raw: 17.4225 W }
+figures: []
+literals:
+  - name: A
+    value: 1.01
+    unit: m^2
+    text: "1.01"
+    suggest: { min: 0.71, max: 1.31, step: 0.01, decimals: 2 }
+  - name: d
+    value: 2.2
+    unit: cm
+    text: "2.2"
+    suggest: { min: 1.5, max: 2.9, step: 0.1, decimals: 1 }
+  - name: theta
+    value: 33
+    unit: °
+    text: "33"
+    suggest: { min: 23, max: 43, step: 1 }
+  - name: k
+    value: 0.0115
+    unit: W/(m °C)
+    text: "0.0115"
+    suggest: { min: 0.0081, max: 0.015, step: 0.0001, decimals: 4 }
+scenario:
+  id: phys161-exam4-p033
+  source: { document: PHYS161_Exam4, labels: [ P33 ] }
+  section: Temperature and heat
+  narrative: >-
+    A polystyrene foam icebox has a total area of {A:unit} and walls with an average thickness of
+    {d:unit}. The box contains ice and water at 0°, and the outside temperature is {theta}°. The
+    thermal conductivity of polystyrene foam is k = {k:unit}.
+  vars:
+    - { name: A, kind: range, min: TODO, max: TODO, step: TODO, unit: m^2 }
+    - { name: d, kind: range, min: TODO, max: TODO, step: TODO, unit: cm }
+    - { name: theta, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: k, kind: range, min: TODO, max: TODO, step: TODO, unit: W/(m °C) }
+  parts:
+    - id: answer
+      prompt: What is the rate of heat flow into the box? {_0}{_u}
+      answer: TODO
+      unit: W
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { A: 1.01, d: 2.2, theta: 33, k: 0.0115 }
+    parts:
+      - { id: answer, answer: 17.4225, unit: W, source: P33 }

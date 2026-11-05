@@ -1,0 +1,63 @@
+# Draft imported from PHYS161_Exam4_new.docx.html — not yet a scenario.
+# Resolve the TODOs, move `scenario` to ../scenarios/<id>.yaml, run `pt check`.
+
+label: P8
+number: 8
+section: Temperature and heat
+source: { document: PHYS161_Exam4, file: PHYS161_Exam4_new.docx.html }
+raw: A railroad rail made of steel is 870 m long and is fastened securely at both ends when the
+  temperature is 17°. By how much would the rail expand if it were free to do so when the
+  temperature rises to 33°? Assume that the coefficient of linear expansion for steel is 11.4×10⁻⁶
+  1/K. (0.158688 m)
+text: A railroad rail made of steel is 870 m long and is fastened securely at both ends when the
+  temperature is 17°. By how much would the rail expand if it were free to do so when the
+  temperature rises to 33°? Assume that the coefficient of linear expansion for steel is 11.4×10^-6
+  1/K. (0.158688 m)
+answer: { value: 0.158688, unit: m, raw: 0.158688 m }
+figures: []
+literals:
+  - name: d
+    value: 870
+    unit: m
+    text: "870"
+    suggest: { min: 609, max: 1131, step: 1 }
+  - name: theta
+    value: 17
+    unit: °
+    text: "17"
+    suggest: { min: 12, max: 22, step: 1 }
+  - name: theta2
+    value: 33
+    unit: °
+    text: "33"
+    suggest: { min: 23, max: 43, step: 1 }
+  - name: alpha
+    value: 0.0000114
+    unit: 1/K
+    text: 11.4×10^-6
+    suggest: { min: 0.000008, max: 0.0000148, step: 1e-7, decimals: 7 }
+scenario:
+  id: phys161-exam4-p008
+  source: { document: PHYS161_Exam4, labels: [ P8 ] }
+  section: Temperature and heat
+  narrative: >-
+    A railroad rail made of steel is {d:unit} long and is fastened securely at both ends when the
+    temperature is {theta}°. Assume that the coefficient of linear expansion for steel is
+    {alpha:unit}.
+  vars:
+    - { name: d, kind: range, min: TODO, max: TODO, step: TODO, unit: m }
+    - { name: theta, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: theta2, kind: range, min: TODO, max: TODO, step: TODO, unit: ° }
+    - { name: alpha, kind: range, min: TODO, max: TODO, step: TODO, unit: 1/K }
+  parts:
+    - id: answer
+      prompt: >-
+        By how much would the rail expand if it were free to do so when the temperature rises to
+        {theta2}°? {_0}{_u}
+      answer: TODO
+      unit: m
+      tolerance: { rel: 0.01 }
+  canonical:
+    vars: { d: 870, theta: 17, theta2: 33, alpha: 0.0000114 }
+    parts:
+      - { id: answer, answer: 0.158688, unit: m, source: P8 }
