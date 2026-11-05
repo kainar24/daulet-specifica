@@ -1,0 +1,1 @@
+var e={1:`Very easy`,2:`Easy`,3:`Medium`,4:`Hard`,5:`Very hard`};export{e as t};
