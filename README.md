@@ -11,3 +11,5 @@
 pnpm install
 pnpm quiz
 ```
+
+Публикация: `bash deploy-site.sh` собирает сайт и выкладывает его в ветку `gh-pages` публичного репозитория.
