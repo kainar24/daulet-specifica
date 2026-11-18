@@ -108,7 +108,7 @@ export const CORE: CoreSection[] = [
           calc: '0.164*(2100*(147-100)+2256000+4186*100+334000)',
           answer: '509 597 Дж',
         },
-        cards: ['phase-chain', 'ice-cool', 'sweat'],
+        cards: ['phase-chain', 'ice-cool', 'sweat', 'boil'],
       },
       {
         id: 'balance',
@@ -392,7 +392,7 @@ export const CORE: CoreSection[] = [
           calc: '120000/(3.4-2.3)',
           answer: '109 091 Па',
         },
-        cards: ['w-pdv', 'real-gas', 'abc', 'isobar-t'],
+        cards: ['w-pdv', 'real-gas', 'abc', 'isobar-t', 'boil'],
       },
       {
         id: 'heat-capacity',

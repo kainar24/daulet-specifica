@@ -22,6 +22,8 @@ describe('core formulas', () => {
   it('link only to cards and formulas that exist', () => {
     expect(coreIds.size).toBe(CORE_FLAT.length);
     expect(CORE_FLAT.flatMap((f) => f.cards).filter((id) => !cardIds.has(id))).toEqual([]);
+    const covered = new Set(CORE_FLAT.filter((f) => f.id !== 'kelvin').flatMap((f) => f.cards));
+    expect(CARDS.map((c) => c.id).filter((id) => !covered.has(id))).toEqual([]);
     expect(LOOKUP.flatMap(([, ids]) => ids).filter((id) => !coreIds.has(id))).toEqual([]);
   });
 });

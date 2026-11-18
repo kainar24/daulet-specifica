@@ -238,9 +238,10 @@
 
   <div class="study-links">
     <a href={resolve('/core/')}><strong>1. Главные формулы</strong><span>24 формулы по порядку, с разбором</span></a>
-    <a href={resolve('/formulas/')}><strong>2. Формулы Даулета</strong><span>41 карточка на все 150 задач</span></a>
-    <a href={resolve('/drill/')}><strong>3. Тренажёр</strong><span>Узнавай задачу за 10 секунд</span></a>
-    <a href={resolve('/lifehacks/')}><strong>4. Лайфхаки</strong><span>План и правила на экзамен</span></a>
+    <a href={resolve('/solutions/')}><strong>2. Решение</strong><span>Все 150 задач с решением</span></a>
+    <a href={resolve('/formulas/')}><strong>3. Формулы Даулета</strong><span>41 карточка на все 150 задач</span></a>
+    <a href={resolve('/drill/')}><strong>4. Тренажёр</strong><span>Узнавай задачу за 10 секунд</span></a>
+    <a href={resolve('/lifehacks/')}><strong>5. Лайфхаки</strong><span>План и правила на экзамен</span></a>
   </div>
 
   <h2>Preset</h2>

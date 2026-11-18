@@ -39,6 +39,7 @@
   <div class="navbar-links">
     <a href={resolve('/')}>Экзамен</a>
     <a href={resolve('/core/')}>Главные формулы</a>
+    <a href={resolve('/solutions/')}>Решение</a>
     <a href={resolve('/formulas/')}>Формулы Даулета</a>
     <a href={resolve('/drill/')}>Тренажёр</a>
     <a href={resolve('/lifehacks/')}>Лайфхаки</a>
