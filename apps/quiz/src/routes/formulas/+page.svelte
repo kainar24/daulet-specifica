@@ -33,10 +33,10 @@
   }
 </script>
 
-<svelte:head><title>Формулы · daulet-specifica</title></svelte:head>
+<svelte:head><title>Формулы Даулета · daulet-specifica</title></svelte:head>
 
 <Page narrow>
-  <div class="page-header"><h1>Формулы</h1></div>
+  <div class="page-header"><h1>Формулы Даулета</h1></div>
   <p class="lead">
     {CARDS.length} карточек закрывают все 150 задач. Сверху самые выгодные: первые 10 дают {top10} задач.
     Числа на экзамене могут быть другими, поэтому учи формулу, а не ответ.

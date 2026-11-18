@@ -63,7 +63,7 @@
         <CourseIndexSection id="general" title="General">
           <!-- As Moodle's leaves; the current page's is li.pageitem. -->
           <ul class="courseindex-sectioncontent unlist">
-            {#each [['/formulas/', 'Формулы'], ['/drill/', 'Тренажёр'], ['/lifehacks/', 'Лайфхаки']] as const as [path, name] (path)}
+            {#each [['/core/', 'Главные формулы'], ['/formulas/', 'Формулы Даулета'], ['/drill/', 'Тренажёр'], ['/lifehacks/', 'Лайфхаки']] as const as [path, name] (path)}
               <li class="courseindex-item d-flex" class:pageitem={page.url.pathname === resolve(path)}>
                 <span class="completioninfo"></span>
                 <a class="courseindex-link text-truncate" href={resolve(path)}>{name}</a>

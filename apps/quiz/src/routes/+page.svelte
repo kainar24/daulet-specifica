@@ -237,9 +237,10 @@
   {/if}
 
   <div class="study-links">
-    <a href={resolve('/formulas/')}><strong>1. Формулы</strong><span>41 карточка на все 150 задач</span></a>
-    <a href={resolve('/drill/')}><strong>2. Тренажёр</strong><span>Узнавай задачу за 10 секунд</span></a>
-    <a href={resolve('/lifehacks/')}><strong>3. Лайфхаки</strong><span>План и правила на экзамен</span></a>
+    <a href={resolve('/core/')}><strong>1. Главные формулы</strong><span>24 формулы по порядку, с разбором</span></a>
+    <a href={resolve('/formulas/')}><strong>2. Формулы Даулета</strong><span>41 карточка на все 150 задач</span></a>
+    <a href={resolve('/drill/')}><strong>3. Тренажёр</strong><span>Узнавай задачу за 10 секунд</span></a>
+    <a href={resolve('/lifehacks/')}><strong>4. Лайфхаки</strong><span>План и правила на экзамен</span></a>
   </div>
 
   <h2>Preset</h2>

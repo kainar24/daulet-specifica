@@ -1,0 +1,582 @@
+/**
+ * The core formulas of Exam 4 in teaching order: what each letter means, when to use it,
+ * and one real problem from the set solved step by step.
+ * `test/core.test.ts` checks every example's calculator line against the printed answer.
+ */
+
+export interface CoreExample {
+  label: string;
+  /** What the problem gives and asks, in short. */
+  given: string;
+  /** Solution steps, each a TeX line. */
+  steps: string[];
+  /** Calculator line, checked against the printed answer. */
+  calc: string;
+  /** The answer as a person writes it. */
+  answer: string;
+}
+
+export interface CoreFormula {
+  id: string;
+  title: string;
+  tex: string;
+  /** [symbol in TeX, meaning and unit]. */
+  letters: [string, string][];
+  /** What the formula says, in plain words. */
+  idea: string;
+  /** Signs in the problem text that call for it. */
+  when: string;
+  /** Common mistake. */
+  trap?: string;
+  example?: CoreExample;
+  /** Daulet's cards that rest on this formula. */
+  cards: string[];
+}
+
+export interface CoreSection {
+  title: string;
+  intro: string;
+  formulas: CoreFormula[];
+}
+
+const r = String.raw;
+
+export const CORE: CoreSection[] = [
+  {
+    title: 'Тепло и температура',
+    intro: 'Тело получает или отдаёт тепло. От этого меняется его температура, состояние (лёд, вода, пар) или размер.',
+    formulas: [
+      {
+        id: 'kelvin',
+        title: 'Кельвины',
+        tex: r`T = t + 273`,
+        letters: [
+          [r`T`, 'абсолютная температура, K'],
+          [r`t`, 'температура в градусах Цельсия, °C'],
+        ],
+        idea: 'Шкала Кельвина начинается с абсолютного нуля. Шаг у неё такой же, как у Цельсия, поэтому разница температур ΔT одинаковая в °C и в K.',
+        when: 'Почти в каждой задаче про газы, КПД и энтропию. Если T стоит одна (в дроби, под корнем, в ln), переводи в K. Если стоит разность ΔT, можно оставить °C.',
+        trap: 'Самая частая ошибка на экзамене: подставить 20 °C вместо 293 K в PV = nRT или в КПД Карно.',
+        cards: ['pv-nrt', 'carnot', 'combined-gas'],
+      },
+      {
+        id: 'mct',
+        title: 'Нагрев и охлаждение',
+        tex: r`Q = mc\,\Delta T`,
+        letters: [
+          [r`Q`, 'тепло, Дж'],
+          [r`m`, 'масса, кг'],
+          [r`c`, 'удельная теплоёмкость, Дж/(кг·K): у воды 4186'],
+          [r`\Delta T`, 'изменение температуры: конечная − начальная'],
+        ],
+        idea: 'Чтобы нагреть тело, нужно тепло. Чем больше масса и чем сильнее нагрев, тем больше тепла. Вещество задаёт c: воду греть труднее, чем металл.',
+        when: 'Температура меняется, а вещество остаётся в том же состоянии: specific heat, heated from … to …, raise the temperature.',
+        trap: 'Если греются два тела сразу (чайник и вода), посчитай Q для каждого и сложи.',
+        example: {
+          label: 'P24',
+          given: 'Алюминиевый чайник 1.5 кг, в нём 1.6 кг воды. Нагрели с 21 до 77 °C. Сколько тепла?',
+          steps: [
+            r`\Delta T = 77 - 21 = 56\ \text{K}`,
+            r`Q = m_{Al}c_{Al}\Delta T + m_w c_w\Delta T`,
+            r`Q = (1.5\cdot910 + 1.6\cdot4186)\cdot56`,
+          ],
+          calc: '(1.5*910+1.6*4186)*(77-21)',
+          answer: '451 506 Дж',
+        },
+        cards: ['q-mct', 'calorimeter', 'lead-lake'],
+      },
+      {
+        id: 'latent',
+        title: 'Плавление и кипение',
+        tex: r`Q = mL`,
+        letters: [
+          [r`L_f`, 'теплота плавления, у воды 334 000 Дж/кг (лёд ↔ вода, при 0 °C)'],
+          [r`L_v`, 'теплота парообразования, у воды 2 256 000 Дж/кг (вода ↔ пар, при 100 °C)'],
+          [r`m`, 'масса, которая расплавилась или испарилась, кг'],
+        ],
+        idea: 'Пока лёд тает или вода кипит, температура стоит на месте. Всё тепло уходит на смену состояния. Обратный переход (замерзание, конденсация) отдаёт столько же.',
+        when: 'melts, freezes, boils, evaporates, condenses, latent heat, heat of fusion или vaporization.',
+        trap: 'Если вещество проходит несколько этапов, раздели путь на куски. Каждый кусок считается либо по mcΔT, либо по mL, потом всё складываешь.',
+        example: {
+          label: 'P19',
+          given: '164 г пара при 147 °C превращают в лёд при 0 °C. Сколько энергии отнять?',
+          steps: [
+            r`\text{пар }147\to100:\ mc_{\text{пар}}\cdot47`,
+            r`\text{конденсация}:\ mL_v \qquad \text{вода }100\to0:\ mc_w\cdot100 \qquad \text{замерзание}:\ mL_f`,
+            r`Q = 0.164\,(2100\cdot47 + 2256000 + 4186\cdot100 + 334000)`,
+          ],
+          calc: '0.164*(2100*(147-100)+2256000+4186*100+334000)',
+          answer: '509 597 Дж',
+        },
+        cards: ['phase-chain', 'ice-cool', 'sweat'],
+      },
+      {
+        id: 'balance',
+        title: 'Тепловой баланс',
+        tex: r`Q_{\text{отдал}} = Q_{\text{получил}}`,
+        letters: [
+          [r`Q_{\text{отдал}}`, 'тепло, которое отдало горячее тело'],
+          [r`Q_{\text{получил}}`, 'тепло, которое получило холодное тело'],
+        ],
+        idea: 'Тепло никуда не пропадает: сколько горячее отдало, столько холодное получило. Каждую часть считаешь по формулам 2 и 3.',
+        when: 'Смешали, бросили лёд или металл в воду, insulated, calorimeter, thermal equilibrium, final temperature of the mixture.',
+        example: {
+          label: 'P10',
+          given: '0.375 кг льда при 0 °C, налили 0.145 кг воды при 83 °C. Сколько льда осталось?',
+          steps: [
+            r`Q_{\text{отдал}} = 0.145\cdot4186\cdot83 = 50\,379\ \text{Дж}`,
+            r`m_{\text{раст}} = \dfrac{Q}{L_f} = \dfrac{50\,379}{334\,000} = 0.151\ \text{кг}`,
+            r`m_{\text{осталось}} = 0.375 - 0.151`,
+          ],
+          calc: '0.375-0.145*4186*83/334000',
+          answer: '0.224 кг',
+        },
+        cards: ['ice-melt', 'ice-cool', 'calorimeter'],
+      },
+      {
+        id: 'power',
+        title: 'Мощность',
+        tex: r`Q = P\,t`,
+        letters: [
+          [r`P`, 'мощность, Вт = Дж/с'],
+          [r`t`, 'время, с (час = 3600, сутки = 86 400)'],
+        ],
+        idea: 'Ватт означает один джоуль в секунду. Энергия равна мощности, умноженной на время.',
+        when: 'В условии есть ватты (W), «per second», «per day», кипятильник, еда в ккал, пот.',
+        example: {
+          label: 'P1',
+          given: 'Тело тратит 97 Вт. Сколько ккал нужно в сутки? 1 ккал = 4186 Дж.',
+          steps: [r`Q = 97\cdot86\,400\ \text{Дж}`, r`Q_{\text{ккал}} = \dfrac{97\cdot86\,400}{4186}`],
+          calc: '97*86400/4186',
+          answer: '2002 ккал',
+        },
+        cards: ['kcal', 'sweat', 'q-mct'],
+      },
+      {
+        id: 'conduction',
+        title: 'Теплопроводность',
+        tex: r`H = \dfrac{kA\,\Delta T}{d}`,
+        letters: [
+          [r`H`, 'поток тепла, Вт'],
+          [r`k`, 'теплопроводность материала, Вт/(м·K)'],
+          [r`A`, 'площадь, м²'],
+          [r`\Delta T`, 'разница температур двух сторон'],
+          [r`d`, 'толщина, м'],
+        ],
+        idea: 'Тепло течёт через стенку. Поток больше, если стенка большая, тонкая и разница температур велика.',
+        when: 'window, wall, rod, thickness, thermal conductivity. Если спрашивают энергию за время, умножь на t (формула 5).',
+        trap: 'Толщину переводи в метры: 4.1 мм = 0.0041 м.',
+        example: {
+          label: 'P37',
+          given: 'Окно 1.95 × 1 м, толщина 4.1 мм, стороны 19.5 и 11.5 °C, k = 0.8. Сколько энергии за 6.5 ч?',
+          steps: [
+            r`H = \dfrac{0.8\cdot1.95\cdot(19.5-11.5)}{0.0041} = 3044\ \text{Вт}`,
+            r`Q = H\,t = 3044\cdot6.5\cdot3600`,
+          ],
+          calc: '0.8*1.95*1*(19.5-11.5)/0.0041*6.5*3600',
+          answer: '7.12e7 Дж',
+        },
+        cards: ['conduction', 'y-junction'],
+      },
+      {
+        id: 'expansion',
+        title: 'Тепловое расширение',
+        tex: r`\Delta L = \alpha L\,\Delta T \qquad \Delta A = 2\alpha A\,\Delta T \qquad \Delta V = 3\alpha V\,\Delta T`,
+        letters: [
+          [r`\alpha`, 'коэффициент линейного расширения, 1/K'],
+          [r`L,\ A,\ V`, 'начальная длина, площадь, объём'],
+        ],
+        idea: 'При нагреве тела растут. Длина растёт на αΔT от себя. У площади два измерения, поэтому 2α, у объёма три, поэтому 3α.',
+        when: 'expands, coefficient of linear expansion, bridge, rod, hole, cube, length increases.',
+        example: {
+          label: 'P5',
+          given: 'Стальной мост 156 м удлинился на 11.1 см, α = 11.7·10⁻⁶. На сколько нагрелся?',
+          steps: [r`\Delta T = \dfrac{\Delta L}{\alpha L} = \dfrac{0.111}{11.7\cdot10^{-6}\cdot156}`],
+          calc: '0.111/(11.7e-6*156)',
+          answer: '60.8 K',
+        },
+        cards: ['expansion-line', 'expansion-area', 'buckle', 'wire-frequency', 'composite-rod'],
+      },
+      {
+        id: 'mech-heat',
+        title: 'Механическая энергия в тепло',
+        tex: r`mgh = mc\,\Delta T \qquad \tfrac12mv^2 = Q`,
+        letters: [
+          [r`g`, '9.8 м/с²'],
+          [r`h`, 'высота, м'],
+          [r`v`, 'скорость, м/с'],
+        ],
+        idea: 'Энергия падения или движения целиком превращается в тепло. Масса часто сокращается.',
+        when: 'falls from height, all the energy goes into heating, bullet, ice slides.',
+        example: {
+          label: 'P13',
+          given: 'Свинцовый шар падает с 126.1 м, c = 128, начальная температура 20.1 °C. Абсолютная конечная температура?',
+          steps: [r`\Delta T = \dfrac{gh}{c} = \dfrac{9.8\cdot126.1}{128} = 9.65`, r`T = 273 + 20.1 + 9.65`],
+          calc: '273+20.1+9.8*126.1/128',
+          answer: '302.8 K',
+        },
+        cards: ['mech-heat'],
+      },
+    ],
+  },
+  {
+    title: 'Газы',
+    intro: 'Газ описывают четыре величины: давление P, объём V, температура T и количество n. Почти всё здесь вытекает из PV = nRT.',
+    formulas: [
+      {
+        id: 'moles',
+        title: 'Моли и молекулы',
+        tex: r`n = \dfrac{m}{M} \qquad N = nN_A \qquad m_0 = \dfrac{M}{N_A}`,
+        letters: [
+          [r`n`, 'количество вещества, моль'],
+          [r`M`, 'молярная масса, кг/моль (32 г/моль = 0.032)'],
+          [r`N`, 'число молекул'],
+          [r`N_A`, '6.022·10²³ 1/моль'],
+          [r`m_0`, 'масса одной молекулы, кг'],
+        ],
+        idea: 'Моль — это пачка из 6.022·10²³ молекул. M — масса одной пачки.',
+        when: 'Дана масса газа, а нужны моли. Спрашивают массу одной молекулы или число молекул.',
+        trap: 'M почти всегда дают в г/моль. Умножь на 0.001.',
+        example: {
+          label: 'P64',
+          given: 'Молярная масса 32 г/моль. Масса одной молекулы?',
+          steps: [r`m_0 = \dfrac{0.032}{6.022\cdot10^{23}}`],
+          calc: '0.032/6.022e23',
+          answer: '5.31e-26 кг',
+        },
+        cards: ['avogadro', 'air'],
+      },
+      {
+        id: 'pvnrt',
+        title: 'Уравнение идеального газа',
+        tex: r`PV = nRT`,
+        letters: [
+          [r`P`, 'давление, Па (1 атм = 101 325)'],
+          [r`V`, 'объём, м³ (1 л = 0.001)'],
+          [r`R`, '8.31 Дж/(моль·K)'],
+          [r`T`, 'температура, только K'],
+        ],
+        idea: 'Главная формула газов. Знаешь три величины из P, V, n, T — найдёшь четвёртую.',
+        when: 'Газ в одном состоянии: container, tank, find pressure, find number of moles.',
+        trap: 'Всё строго в СИ: литры в м³, атмосферы в Па, °C в K.',
+        example: {
+          label: 'P75',
+          given: 'Сосуд 39 л, 108 кг аргона (M = 40 г/моль), 26 °C. Давление?',
+          steps: [r`n = \dfrac{108}{0.040} = 2700\ \text{моль}`, r`P = \dfrac{nRT}{V} = \dfrac{2700\cdot8.31\cdot299}{0.039}`],
+          calc: '108/0.04*8.31*(26+273)/0.039',
+          answer: '1.72e8 Па',
+        },
+        cards: ['pv-nrt', 'flask', 'tank', 'air', 'abc'],
+      },
+      {
+        id: 'combined',
+        title: 'Было и стало',
+        tex: r`\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}`,
+        letters: [
+          [r`1`, 'состояние до'],
+          [r`2`, 'состояние после'],
+        ],
+        idea: 'Тот же газ, ничего не вытекло: nR не меняется, поэтому PV/T остаётся тем же. Если одна величина постоянна, вычеркни её: T = const даёт P₁V₁ = P₂V₂, P = const даёт V/T = const.',
+        when: 'Газ меняет состояние: tire after driving, heated, compressed, final pressure, final volume.',
+        trap: 'Здесь отношения, поэтому атмосферы и литры можно не переводить. Температуру — всегда в K.',
+        example: {
+          label: 'P59',
+          given: 'Шина: 0.151 м³, 5 °C, 2.2 атм. Стало 0.16 м³ и 41 °C. Давление?',
+          steps: [r`P_2 = P_1\cdot\dfrac{V_1}{V_2}\cdot\dfrac{T_2}{T_1}`, r`P_2 = 2.2\cdot101\,325\cdot\dfrac{0.151}{0.16}\cdot\dfrac{314}{278}`],
+          calc: '2.2*101325*0.151/0.16*(41+273)/(5+273)',
+          answer: '237 604 Па',
+        },
+        cards: ['combined-gas', 'isotherm-pv', 'isobar-t', 'flask', 'tank'],
+      },
+      {
+        id: 'ke',
+        title: 'Энергия молекул',
+        tex: r`E = \tfrac32 kT \qquad U = \tfrac32 nRT`,
+        letters: [
+          [r`E`, 'средняя кинетическая энергия одной молекулы, Дж'],
+          [r`k`, 'постоянная Больцмана, 1.38·10⁻²³ Дж/K'],
+          [r`U`, 'внутренняя энергия всего одноатомного газа, Дж'],
+        ],
+        idea: 'Температура — это мера того, как быстро двигаются молекулы. Одна молекула несёт 3/2 kT, весь газ из n молей несёт 3/2 nRT.',
+        when: 'average kinetic energy, translational, internal energy of a monatomic gas.',
+        example: {
+          label: 'P50',
+          given: 'Одноатомный газ при 526 K. Средняя кинетическая энергия молекулы?',
+          steps: [r`E = 1.5\cdot1.38\cdot10^{-23}\cdot526`],
+          calc: '1.5*1.38e-23*526',
+          answer: '1.09e-20 Дж',
+        },
+        cards: ['kinetic-energy', 'mono-ratio'],
+      },
+      {
+        id: 'vrms',
+        title: 'Скорость молекул',
+        tex: r`v_{rms} = \sqrt{\dfrac{3RT}{M}}`,
+        letters: [
+          [r`v_{rms}`, 'среднеквадратичная скорость, м/с'],
+          [r`M`, 'молярная масса, кг/моль'],
+        ],
+        idea: 'Получается из E = 3/2 kT = ½mv². Чем горячее газ и чем легче молекула, тем она быстрее.',
+        when: 'root-mean-square speed, rms speed, how fast molecules move.',
+        trap: 'M в кг/моль: водород 2 г/моль = 0.002.',
+        example: {
+          label: 'P52',
+          given: 'Водород (2 г/моль) при 460 K. Скорость v_rms?',
+          steps: [r`v = \sqrt{\dfrac{3\cdot8.31\cdot460}{0.002}}`],
+          calc: 'sqrt(3*8.31*460/0.002)',
+          answer: '2395 м/с',
+        },
+        cards: ['vrms'],
+      },
+      {
+        id: 'pressure',
+        title: 'Давление и сила',
+        tex: r`P = \dfrac{F}{A} \qquad PA = mg`,
+        letters: [
+          [r`F`, 'сила, Н'],
+          [r`A`, 'площадь, м² (круг: πr²)'],
+        ],
+        idea: 'Давление — это сила на каждый квадратный метр. Поршень стоит, когда газ давит снизу с такой же силой, как вес сверху.',
+        when: 'piston, supports a weight, cylinder with radius.',
+        example: {
+          label: 'P54',
+          given: 'Поршень радиусом 1.8 см держится на газе при 1 атм, сверху вакуум. Масса поршня?',
+          steps: [r`m = \dfrac{PA}{g} = \dfrac{101\,325\cdot\pi\cdot0.018^2}{9.8}`],
+          calc: '101325*pi*0.018^2/9.8',
+          answer: '10.5 кг',
+        },
+        cards: ['piston'],
+      },
+    ],
+  },
+  {
+    title: 'Первый закон термодинамики',
+    intro: 'Тепло, которое получил газ, идёт в две стороны: на нагрев самого газа (ΔU) и на работу, когда газ расширяется (W).',
+    formulas: [
+      {
+        id: 'first-law',
+        title: 'Первый закон',
+        tex: r`\Delta U = Q - W`,
+        letters: [
+          [r`Q`, 'тепло: «+» газ получил, «−» отдал'],
+          [r`W`, 'работа газа: «+» газ расширился, «−» его сжали'],
+          [r`\Delta U`, 'изменение внутренней энергии: «+» газ нагрелся'],
+        ],
+        idea: 'Закон сохранения энергии для газа. Из трёх величин Q, W, ΔU по двум находишь третью.',
+        when: 'heat added, work done by the gas, change in internal energy. Почти каждая задача раздела.',
+        trap: 'Внимательно со знаками. Газ сжали — W отрицательная. Газ отдал тепло — Q отрицательное.',
+        example: {
+          label: 'P80',
+          given: 'Газу дали 37.3 Дж, объём 57.2 → 112 см³ при 1 атм. ΔU?',
+          steps: [r`W = P\,\Delta V = 101\,325\cdot(112-57.2)\cdot10^{-6} = 5.55\ \text{Дж}`, r`\Delta U = Q - W = 37.3 - 5.55`],
+          calc: '37.3-101325*(112-57.2)*1e-6',
+          answer: '31.7 Дж',
+        },
+        cards: ['real-gas', 'mono-ratio', 'isobar-t'],
+      },
+      {
+        id: 'work',
+        title: 'Работа газа',
+        tex: r`W = P\,\Delta V`,
+        letters: [
+          [r`P`, 'давление (постоянное), Па'],
+          [r`\Delta V`, 'V₂ − V₁, м³'],
+        ],
+        idea: 'Газ толкает поршень и делает работу. На графике P–V работа равна площади под линией процесса. Если объём не меняется, W = 0.',
+        when: 'constant pressure, isobaric, expands, PV diagram.',
+        trap: 'См³ в м³: × 10⁻⁶. Литры: × 0.001.',
+        example: {
+          label: 'P85',
+          given: 'Газ расширился с 2.3 до 3.4 м³ при постоянном давлении, сделал 120 кДж работы. Давление?',
+          steps: [r`P = \dfrac{W}{\Delta V} = \dfrac{120\,000}{3.4-2.3}`],
+          calc: '120000/(3.4-2.3)',
+          answer: '109 091 Па',
+        },
+        cards: ['w-pdv', 'real-gas', 'abc', 'isobar-t'],
+      },
+      {
+        id: 'heat-capacity',
+        title: 'Теплоёмкости газа',
+        tex: r`\Delta U = nC_v\Delta T \qquad Q_V = nC_v\Delta T \qquad Q_P = nC_p\Delta T \qquad C_p = C_v + R`,
+        letters: [
+          [r`C_v`, 'молярная теплоёмкость при V = const: одноатомный 3/2 R, двухатомный 5/2 R'],
+          [r`C_p`, 'при P = const: одноатомный 5/2 R, двухатомный 7/2 R'],
+          [r`\gamma`, 'C_p / C_v: 5/3 у одноатомного, 1.4 у двухатомного'],
+        ],
+        idea: 'ΔU = nC_vΔT верно для любого процесса. При P = const газ ещё и работает, поэтому тепла нужно больше: C_p = C_v + R.',
+        when: 'monatomic, diatomic, isobaric, isochoric, constant volume, Cp, Cv.',
+        trap: 'Удобная связка для одноатомного газа при P = const: W = nRΔT, ΔU = 1.5 W, Q = 2.5 W.',
+        example: {
+          label: 'P105',
+          given: 'Одноатомный газ при P = const сделал 200 Дж работы. Сколько тепла дали?',
+          steps: [r`W = P\Delta V = nR\Delta T = 200`, r`Q = nC_p\Delta T = \tfrac52 nR\Delta T = 2.5\cdot200`],
+          calc: '2.5*200',
+          answer: '500 Дж',
+        },
+        cards: ['mono-ratio', 'real-gas', 'cycle-net', 'abc'],
+      },
+      {
+        id: 'isothermal',
+        title: 'Изотерма: T = const',
+        tex: r`\Delta U = 0 \qquad Q = W = nRT\ln\dfrac{V_2}{V_1}`,
+        letters: [[r`\ln`, 'натуральный логарифм, кнопка ln на калькуляторе']],
+        idea: 'Температура не меняется, поэтому ΔU = 0. Всё тепло уходит в работу.',
+        when: 'isothermal, constant temperature, quasi-statically at the same temperature.',
+        trap: 'При сжатии V₂ < V₁, логарифм отрицательный. Если спрашивают «сколько работы нужно», бери модуль.',
+        example: {
+          label: 'P86',
+          given: '400 Дж уходит на сжатие 0.8 моль газа до 1/5 объёма при T = const. Найти T.',
+          steps: [r`T = \dfrac{W}{nR\ln5} = \dfrac{400}{0.8\cdot8.31\cdot\ln5}`],
+          calc: '400/(0.8*8.31*ln(5))',
+          answer: '37.4 K',
+        },
+        cards: ['isotherm-w', 'isotherm-pv'],
+      },
+      {
+        id: 'adiabatic',
+        title: 'Адиабата: Q = 0',
+        tex: r`PV^{\gamma} = \text{const} \qquad TV^{\gamma-1} = \text{const} \qquad W = -\Delta U`,
+        letters: [[r`\gamma`, 'C_p / C_v, обычно дают: 1.4 для N₂ и воздуха']],
+        idea: 'Процесс такой быстрый, что тепло не успевает уйти. Сжатый газ нагревается за счёт работы над ним.',
+        when: 'adiabatic, rapidly, insulated, γ = 1.4.',
+        example: {
+          label: 'P101',
+          given: 'N₂ при 2 °C быстро сжали вдвое, γ = 1.4. Конечная температура?',
+          steps: [r`T_2 = T_1\left(\dfrac{V_1}{V_2}\right)^{\gamma-1} = 275\cdot2^{0.4}`],
+          calc: '(2+273)*2^0.4',
+          answer: '362.9 K',
+        },
+        cards: ['adiabat', 'cycle-net'],
+      },
+      {
+        id: 'cycle',
+        title: 'Цикл',
+        tex: r`\Delta U_{\text{цикл}} = 0 \qquad Q_{\text{net}} = W_{\text{net}} = \text{площадь петли}`,
+        letters: [[r`W_{\text{net}}`, 'работа за весь цикл; обход по часовой стрелке даёт «+»']],
+        idea: 'Газ вернулся в начальное состояние, значит U то же самое. Вся полученная за цикл теплота ушла в работу, а работа — это площадь внутри фигуры на графике.',
+        when: 'cycle, path abca, net work, around the cycle.',
+        example: {
+          label: 'P90',
+          given: 'Цикл ADBA на графике — треугольник с катетами 4 атм и 4 л. Работа газа?',
+          steps: [r`W = \tfrac12\,\Delta P\,\Delta V = \tfrac12\cdot(4\cdot101\,325)\cdot(4\cdot0.001)`],
+          calc: '0.5*(6-2)*(6-2)*101325*0.001',
+          answer: '810.6 Дж',
+        },
+        cards: ['cycle-area', 'cycle-net', 'abc'],
+      },
+    ],
+  },
+  {
+    title: 'Второй закон термодинамики',
+    intro: 'Тепловая машина берёт тепло у горячего, часть превращает в работу, остаток отдаёт холодному. Целиком в работу тепло не переходит никогда.',
+    formulas: [
+      {
+        id: 'efficiency',
+        title: 'КПД двигателя',
+        tex: r`e = \dfrac{W}{Q_h} \qquad Q_h = W + Q_c`,
+        letters: [
+          [r`Q_h`, 'тепло от нагревателя (hot), Дж'],
+          [r`Q_c`, 'тепло холодильнику (cold), Дж'],
+          [r`e`, 'КПД, доля от 0 до 1 (15 % = 0.15)'],
+        ],
+        idea: 'КПД показывает, какая доля полученного тепла стала работой. Остаток Q_c выбрасывается.',
+        when: 'efficiency, engine, heat absorbed, exhaust, power plant. Если дана мощность и cycles/s, работа за цикл W = P / f.',
+        example: {
+          label: 'P129',
+          given: 'КПД 17 %, мощность 192 Вт, 13 циклов в секунду. Q_h за цикл?',
+          steps: [r`W = \dfrac{192}{13} = 14.77\ \text{Дж}`, r`Q_h = \dfrac{W}{e} = \dfrac{14.77}{0.17}`],
+          calc: '192/13/0.17',
+          answer: '86.9 Дж',
+        },
+        cards: ['engine', 'carnot'],
+      },
+      {
+        id: 'carnot',
+        title: 'Карно: максимальный КПД',
+        tex: r`e = 1 - \dfrac{T_c}{T_h} \qquad \dfrac{Q_c}{Q_h} = \dfrac{T_c}{T_h}`,
+        letters: [
+          [r`T_h`, 'температура нагревателя, K'],
+          [r`T_c`, 'температура холодильника, K'],
+        ],
+        idea: 'Лучшая возможная машина между двумя температурами. Реальная всегда хуже.',
+        when: 'Carnot, ideal engine, maximum possible efficiency, reservoirs at … and … .',
+        trap: 'Только кельвины. С градусами Цельсия ответ будет неверным.',
+        example: {
+          label: 'P120',
+          given: 'Нагреватель 455 °C, холодильник 42 °C. Максимальный КПД?',
+          steps: [r`e = 1 - \dfrac{42+273}{455+273} = 1 - \dfrac{315}{728}`],
+          calc: '1-(42+273)/(455+273)',
+          answer: '0.567',
+        },
+        cards: ['carnot'],
+      },
+      {
+        id: 'cop',
+        title: 'Холодильник',
+        tex: r`COP = \dfrac{Q_c}{W} \qquad COP_{\text{Карно}} = \dfrac{T_c}{T_h - T_c}`,
+        letters: [[r`COP`, 'холодильный коэффициент: сколько тепла выкачано на 1 Дж работы']],
+        idea: 'Двигатель наоборот: тратим работу W, чтобы забрать тепло Q_c из холодного места.',
+        when: 'refrigerator, coefficient of performance, engine working in reverse.',
+        example: {
+          label: 'P118',
+          given: 'Машина Карно между 355 и 250 K работает как холодильник. COP?',
+          steps: [r`COP = \dfrac{250}{355-250}`],
+          calc: '250/(355-250)',
+          answer: '2.38',
+        },
+        cards: ['cop'],
+      },
+      {
+        id: 'entropy',
+        title: 'Энтропия',
+        tex: r`\Delta S = \dfrac{Q}{T} \qquad \Delta S = mc\ln\dfrac{T_2}{T_1}`,
+        letters: [
+          [r`\Delta S`, 'изменение энтропии, Дж/K'],
+          [r`T`, 'постоянная температура, K: таяние 273, кипение 373, большое озеро'],
+        ],
+        idea: 'Первая формула — когда T не меняется (таяние, кипение, озеро, изотерма). Вторая — когда тело нагревается или остывает. Получил тепло: ΔS > 0, отдал: ΔS < 0.',
+        when: 'entropy change, melts, lake, universe.',
+        trap: 'Энтропия Вселенной = сумма ΔS всех тел. Для газа при P = const: ΔS = nC_p ln(V₂/V₁).',
+        example: {
+          label: 'P121',
+          given: '238 г льда при 0 °C тает в озере. ΔS льда?',
+          steps: [r`Q = mL_f = 0.238\cdot334\,000`, r`\Delta S = \dfrac{Q}{273}`],
+          calc: '0.238*334000/273',
+          answer: '291 Дж/K',
+        },
+        cards: ['entropy-qt', 'lead-lake', 'entropy-gas'],
+      },
+    ],
+  },
+];
+
+/** Every core formula in order, numbered from 1. */
+export const CORE_FLAT: CoreFormula[] = CORE.flatMap((s) => s.formulas);
+
+/** Words in the question → which core formula to open. */
+export const LOOKUP: [string, string[]][] = [
+  ['Температура в °C, а формула про газ, КПД или энтропию', ['kelvin']],
+  ['Сколько тепла, чтобы нагреть или остудить', ['mct']],
+  ['Тает, замерзает, кипит, испаряется, конденсируется', ['latent']],
+  ['Смешали, бросили в воду, equilibrium', ['balance']],
+  ['Ватты, за час или сутки, ккал, пот', ['power']],
+  ['Окно, стена, стержень, thickness, conductivity', ['conduction']],
+  ['Длина, площадь или объём растёт при нагреве', ['expansion']],
+  ['Упал с высоты, скорость ушла в тепло', ['mech-heat']],
+  ['Масса молекулы, число молекул, дана масса газа', ['moles']],
+  ['Давление, объём, моли или T газа в одном состоянии', ['pvnrt']],
+  ['Газ был в одном состоянии, стал в другом', ['combined']],
+  ['Кинетическая энергия молекулы, internal energy', ['ke']],
+  ['rms speed, скорость молекул', ['vrms']],
+  ['Поршень, груз на газе', ['pressure']],
+  ['Тепло, работа и внутренняя энергия вместе', ['first-law']],
+  ['Работа при постоянном давлении, PV-график', ['work', 'cycle']],
+  ['monatomic, Cp, Cv, isobaric, constant volume', ['heat-capacity']],
+  ['isothermal, constant temperature', ['isothermal']],
+  ['adiabatic, rapidly, γ', ['adiabatic']],
+  ['cycle, net work, путь abca', ['cycle']],
+  ['efficiency, engine, Q_h, Q_c', ['efficiency']],
+  ['Carnot, maximum efficiency, reservoirs', ['carnot']],
+  ['refrigerator, COP', ['cop']],
+  ['entropy', ['entropy']],
+];
