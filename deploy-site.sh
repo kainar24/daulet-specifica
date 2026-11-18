@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 
 OWNER=kainar24
 REPO=daulet-specifica
-GH="${GH:-$(command -v gh || echo /private/tmp/claude-501/-Users-kainar-Desktop-Jean-Claude-Van-Code/5ec0f44d-5e51-4e2c-bc47-21f5abcc442e/scratchpad/ghcli/gh_2.103.3_macOS_arm64/bin/gh)}"
+GH="${GH:-$(command -v gh || echo "$HOME/Developer/gh/bin/gh")}"
 NAME="$(git config --global user.name)"
 EMAIL="$(git config --global user.email)"
 
